@@ -1,0 +1,703 @@
+{% comment %}
+  Build Your Bundle — Mission Beard PDP
+  A conversion-optimised product landing page for the build-your-own beard oil bundle.
+  Configure the four scent variant IDs in the section settings to wire up Shopify cart.
+{% endcomment %}
+
+{{ 'build-your-bundle.css' | asset_url | stylesheet_tag }}
+
+{%- assign currency_symbol = section.settings.currency_symbol | default: '£' -%}
+{%- assign single_price = section.settings.single_price | default: 24 -%}
+
+{%- capture byb_config -%}
+{
+  "single": {{ single_price | json }},
+  "currencySymbol": {{ currency_symbol | json }},
+  "cartUrl": "/cart",
+  "tiers": [
+    { "qty": 1, "discount": 0,    "label": "Single", "sub": "Try one scent", "flag": null },
+    { "qty": 2, "discount": 0.10, "label": "Duo",    "sub": "Save 10%",      "flag": null },
+    { "qty": 3, "discount": 0.15, "label": "Trio",   "sub": "Save 15%",      "flag": "Most popular" },
+    { "qty": 4, "discount": 0.25, "label": "Quad",   "sub": "Save 25%",      "flag": "Best value · 1 free" }
+  ],
+  "scents": [
+    { "id": "underdog",  "variantId": {{ section.settings.variant_underdog  | json }} },
+    { "id": "truenorth", "variantId": {{ section.settings.variant_truenorth | json }} },
+    { "id": "elprez",    "variantId": {{ section.settings.variant_elprez    | json }} },
+    { "id": "sandal",    "variantId": {{ section.settings.variant_sandal    | json }} }
+  ]
+}
+{%- endcapture -%}
+
+<div class="byb" data-byb-root data-byb-config='{{ byb_config | strip_newlines | escape }}'>
+  <div class="byb-page" id="byb-top">
+
+    {%- comment -%} ── ANNOUNCE BAR ── {%- endcomment -%}
+    <div class="byb-announce">
+      <span><b>★ 4.8/5</b> from 11,400+ verified reviews</span>
+      <span class="dot hide-sm">●</span>
+      <span class="hide-sm">Free UK shipping over £40</span>
+      <span class="dot hide-sm">●</span>
+      <span>60-day beard guarantee</span>
+    </div>
+
+    {%- comment -%} ── HEADER ── {%- endcomment -%}
+    {%- if section.settings.show_header -%}
+    <header class="byb-hdr">
+      <div class="byb-hdr-inner">
+        <nav class="byb-hdr-nav left">
+          <a href="/collections/all">Shop</a>
+          <a href="#fragrances">Scents</a>
+          <a href="/collections/bundles">Bundles</a>
+          <a href="/blogs/journal">Journal</a>
+        </nav>
+        <a href="/" class="byb-hdr-mark">
+          <img src="{{ 'byb-mission-beard-mark.png' | asset_url }}" alt="Mission Beard" width="36" height="36">
+          <span>Mission Beard</span>
+        </a>
+        <nav class="byb-hdr-nav right">
+          <a href="/account">Account</a>
+          <a href="/cart" class="byb-hdr-cart-pill">
+            Cart <span data-byb-cart-count>(0)</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    {%- endif -%}
+
+    {%- comment -%} ── HERO / BUNDLE BUILDER ── {%- endcomment -%}
+    <section class="byb-hero">
+
+      {%- comment -%} GALLERY {%- endcomment -%}
+      {%- assign shot_grooming = 'byb-grooming-essentials.jpg' | asset_url -%}
+      {%- assign shot_underdog = 'byb-underdog.jpg' | asset_url -%}
+      {%- assign shot_truenorth = 'byb-true-north.jpg' | asset_url -%}
+      {%- assign shot_elprez = 'byb-el-presidente.jpg' | asset_url -%}
+      {%- assign shot_sandal = 'byb-sandalwood-vanille.jpg' | asset_url -%}
+
+      <div class="byb-gallery">
+        <div class="byb-gallery-main">
+          <span class="ribbon">Build your bundle · Save up to 25%</span>
+          <span class="ribbon-2">
+            <span class="live"></span>
+            <span><b style="color:#fff;">237</b> bundles built today</span>
+          </span>
+          <img src="{{ shot_grooming }}" alt="Mission Beard bundle" data-byb-gallery-main>
+        </div>
+        <div class="byb-gallery-thumbs">
+          <button class="byb-gallery-thumb active" data-byb-gallery-thumb="0" data-byb-thumb-src="{{ shot_grooming }}" type="button"><img src="{{ shot_grooming }}" alt=""></button>
+          <button class="byb-gallery-thumb video" data-byb-gallery-thumb="1" data-byb-thumb-src="{{ shot_underdog }}" type="button"><img src="{{ shot_underdog }}" alt=""></button>
+          <button class="byb-gallery-thumb video" data-byb-gallery-thumb="2" data-byb-thumb-src="{{ shot_truenorth }}" type="button"><img src="{{ shot_truenorth }}" alt=""></button>
+          <button class="byb-gallery-thumb video" data-byb-gallery-thumb="3" data-byb-thumb-src="{{ shot_elprez }}" type="button"><img src="{{ shot_elprez }}" alt=""></button>
+          <button class="byb-gallery-thumb video" data-byb-gallery-thumb="4" data-byb-thumb-src="{{ shot_sandal }}" type="button"><img src="{{ shot_sandal }}" alt=""></button>
+        </div>
+      </div>
+
+      {%- comment -%} BUYBOX {%- endcomment -%}
+      <div class="byb-buy">
+        <div class="byb-crumb">
+          <a href="/collections/all">Shop</a>
+          <span class="sep">/</span>
+          <a href="/collections/beard-oil">Beard Oil</a>
+          <span class="sep">/</span>
+          <span>Build Your Bundle</span>
+        </div>
+
+        <div class="byb-buy-eyebrow">
+          <span class="arr"></span>
+          <span>Build your own · Beard Oil</span>
+        </div>
+
+        <h1>The Beard Oil <em>Bundle</em><br>You Build Yourself.</h1>
+
+        <p class="lede">Mix and match any of our four signature scents. Pick two and save 10%. Pick three for 15%. Pick four — the fourth is on us.</p>
+
+        <div class="byb-buy-stars">
+          <span class="stars">★★★★★</span>
+          <b>4.8</b>
+          <a href="#byb-reviews">Read 11,400+ reviews</a>
+        </div>
+
+        {%- comment -%} TIER LADDER {%- endcomment -%}
+        <div class="byb-tier-label">
+          <span class="step">1</span>
+          <span>Pick your bundle size</span>
+          <span class="line"></span>
+        </div>
+        <div class="byb-tiers">
+          {%- assign tier_qtys = '1,2,3,4' | split: ',' -%}
+          {%- assign tier_saves = ',-10%,-15%,-25%' | split: ',' -%}
+          {%- assign tier_subs = 'Try one scent,Save 10%,Save 15%,Save 25%' | split: ',' -%}
+          {%- assign tier_flags = ',,Most popular,Best value · 1 free' | split: ',' -%}
+
+          {%- for q in tier_qtys -%}
+            {%- assign idx = forloop.index0 -%}
+            {%- assign flag = tier_flags[idx] -%}
+            {%- assign save = tier_saves[idx] | default: '' -%}
+            {%- assign sub = tier_subs[idx] -%}
+            {%- assign active = '' -%}
+            {%- if q == '3' %}{% assign active = 'active' %}{% endif -%}
+            {%- assign hasflag = '' -%}
+            {%- if flag != blank %}{% assign hasflag = 'has-flag' %}{% endif -%}
+            <button type="button" data-byb-tier="{{ q }}" class="byb-tier {{ active }} {{ hasflag }}">
+              {%- if flag != blank -%}<span class="tier-flag">{{ flag }}</span>{%- endif -%}
+              <div class="tier-qty">{{ q }}</div>
+              <div class="tier-qty-cap">{% if q == '1' %}Bottle{% else %}Bottles{% endif %}</div>
+              <div class="tier-save">{% if save == blank %}No discount{% else %}{{ save }}{% endif %}</div>
+              <div class="tier-detail">{{ sub }}</div>
+            </button>
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} SCENT PICKERS {%- endcomment -%}
+        <div class="byb-pickers">
+          <div class="byb-pickers-head">
+            <div class="byb-pickers-title">
+              <span class="step">2</span>
+              <span data-byb-step2-label>Choose your 3 scents</span>
+            </div>
+            <div class="byb-pickers-counter" data-byb-counter>
+              <span><b>3</b> bottles to choose</span>
+            </div>
+          </div>
+
+          {%- assign scent_ids = 'underdog,truenorth,elprez,sandal' | split: ',' -%}
+          {%- assign scent_names = 'Underdog,True North,El Presidente,Sandalwood Vanille' | split: ',' -%}
+          {%- assign scent_notes = 'Smoke · Spiced Bourbon|Cedarwood · Mint · Pine|Lemon · Lime · Citrus Zest · Cedarwood|Sandalwood · Vanilla · Clove' | split: '|' -%}
+          {%- assign scent_imgs = 'byb-underdog.jpg,byb-true-north.jpg,byb-el-presidente.jpg,byb-sandalwood-vanille.jpg' | split: ',' -%}
+          {%- assign scent_color1 = '#c45a2c,#3a7d5c,#d4a024,#8b5e3c' | split: ',' -%}
+          {%- assign scent_color2 = '#e8a060,#7eb89a,#f0d070,#c9a47a' | split: ',' -%}
+
+          {%- for sid in scent_ids -%}
+            {%- assign idx = forloop.index0 -%}
+            <div class="byb-picker-row" data-byb-picker="{{ sid }}">
+              <div class="byb-picker-thumb">
+                <img src="{{ scent_imgs[idx] | asset_url }}" alt="{{ scent_names[idx] }}">
+                <div class="fam" style="background: linear-gradient(90deg, {{ scent_color1[idx] }}, {{ scent_color2[idx] }});"></div>
+              </div>
+              <div class="byb-picker-info">
+                <div class="byb-picker-name">{{ scent_names[idx] }}</div>
+                <div class="byb-picker-note">{{ scent_notes[idx] }}</div>
+              </div>
+              <div class="byb-qty-pill">
+                <button type="button" data-byb-dec aria-label="Decrease" disabled>−</button>
+                <span class="qty-val">0</span>
+                <button type="button" data-byb-inc aria-label="Increase">+</button>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} PRICE & ATC {%- endcomment -%}
+        <div class="byb-price-row">
+          <span class="now" data-byb-price-now>{{ currency_symbol }}61.20</span>
+          <span class="was" data-byb-price-was>{{ currency_symbol }}72.00</span>
+          <span class="per" data-byb-price-per>{{ currency_symbol }}20.40/bottle</span>
+          <span class="save" data-byb-price-save>Save {{ currency_symbol }}10.80</span>
+        </div>
+
+        <button type="button" class="byb-atc" data-byb-atc disabled>Pick 3 more scents</button>
+
+        <div class="byb-atc-helper">
+          <b>Free UK shipping</b> · <b>60-day guarantee</b> · <b>Ships in 24h</b>
+        </div>
+
+        <div class="byb-trust">
+          <div class="byb-trust-item">
+            <span class="ic">✓</span>
+            <span>100% natural<br>essential oils</span>
+          </div>
+          <div class="byb-trust-item">
+            <span class="ic">⚡</span>
+            <span>Free UK delivery<br>over £40</span>
+          </div>
+          <div class="byb-trust-item">
+            <span class="ic">↺</span>
+            <span>60-day beard<br>guarantee</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {%- comment -%} ── VIDEO CAROUSEL ── {%- endcomment -%}
+    <section class="byb-vidsec">
+      <div class="byb-section">
+        <div class="byb-section-head head-row">
+          <div>
+            <span class="byb-section-eyebrow">See · Smell · Decide</span>
+            <h2 class="byb-section-h2">Watch each oil <em>in action.</em></h2>
+            <p class="byb-section-sub">Forty seconds with each scent. The story behind it, the notes you smell first, and what real customers say after a week of daily use.</p>
+          </div>
+          <div class="byb-vid-arrows">
+            <button type="button" class="byb-vid-arrow" data-byb-vid-arrow="prev" aria-label="Previous" disabled>←</button>
+            <button type="button" class="byb-vid-arrow" data-byb-vid-arrow="next" aria-label="Next">→</button>
+          </div>
+        </div>
+
+        <div class="byb-vid-carousel">
+          <div class="byb-vid-track" data-byb-vid-track>
+            {%- assign vid_ids = 'underdog,truenorth,elprez,sandal' | split: ',' -%}
+            {%- assign vid_posters = 'byb-underdog.jpg,byb-true-north.jpg,byb-el-presidente.jpg,byb-sandalwood-vanille.jpg' | split: ',' -%}
+            {%- assign vid_colors = '#c45a2c,#3a7d5c,#d4a024,#8b5e3c' | split: ',' -%}
+            {%- assign vid_names = 'Underdog,True North,El Presidente,Sandalwood Vanille' | split: ',' -%}
+            {%- assign vid_tags = 'Smoke + spiced bourbon|Cedar + sea air|Lemon + tobacco|Sandalwood + vanilla' | split: '|' -%}
+            {%- assign vid_runtimes = '0:42,0:38,0:34,0:48' | split: ',' -%}
+
+            {%- for vid in vid_ids -%}
+              {%- assign idx = forloop.index0 -%}
+              <article class="byb-vid-card" style="--accent: {{ vid_colors[idx] }};">
+                <img class="poster" src="{{ vid_posters[idx] | asset_url }}" alt="{{ vid_names[idx] }}">
+                <div class="protect"></div>
+                <span class="badge">
+                  <span class="swatch" style="background: {{ vid_colors[idx] }};"></span>
+                  Scent reel
+                </span>
+                <span class="runtime">{{ vid_runtimes[idx] }}</span>
+                <div class="play"></div>
+                <div class="scrub"><div class="scrub-fill" style="background: {{ vid_colors[idx] }};"></div></div>
+                <div class="meta">
+                  <div class="scent-label" style="color: {{ vid_colors[idx] }};">
+                    <span class="swatch" style="background: {{ vid_colors[idx] }};"></span>
+                    Scent No. {{ forloop.index }}
+                  </div>
+                  <div class="scent-name">{{ vid_names[idx] }}</div>
+                  <div class="scent-tag">{{ vid_tags[idx] }}</div>
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {%- comment -%} ── FRAGRANCE BLOCK ── {%- endcomment -%}
+    <section class="byb-frag-section" id="fragrances" data-byb-frag>
+      <div class="byb-section">
+        <div class="byb-section-head center">
+          <span class="byb-section-eyebrow">Choose your scent</span>
+          <h2 class="byb-section-h2">Four signatures.<br><em>One bundle.</em></h2>
+          <p class="byb-section-sub">Each scent is hand-blended in the UK with over 15 essential oils per bottle. Pick the ones that match your mood — or build a rotation with all four.</p>
+        </div>
+
+        {%- assign sc_ids = 'underdog,truenorth,elprez,sandal' | split: ',' -%}
+        {%- assign sc_names = 'Underdog,True North,El Presidente,Sandalwood Vanille' | split: ',' -%}
+        {%- assign sc_families = 'Smoke · Spiced Bourbon,Fresh · Woodsy,Citrus · Zesty,Warm · Creamy' | split: ',' -%}
+        {%- assign sc_taglines = 'The one that started it all.|A breath of the great outdoors.|Bright. Confident. Untouchable.|Soft, slow, and unforgettable.' | split: '|' -%}
+        {%- assign sc_descs = "A rich, complex blend of whisky, spice and tobacco, with warming notes of vanilla and clove. Bold up front, sweet underneath — develops on the skin all day.|Crisp Atlantic cedarwood lifted by mint and a fruity, floral base. The energy of a pine forest at dawn — clean and invigorating, grounded by warm wood.|A vivid hit of lemon and lime cuts through a base of dry tobacco and warm leather. Sharp, sun-drenched, and a little bit cocky — exactly the point.|Creamy sandalwood meets sweet Madagascan vanilla, finished with a quiet musk. The scent your partner steals your hoodie for. Smooth, warm, intimate." | split: '|' -%}
+        {%- assign sc_imgs = 'byb-underdog.jpg,byb-true-north.jpg,byb-el-presidente.jpg,byb-sandalwood-vanille.jpg' | split: ',' -%}
+        {%- assign sc_intensity = '4,3,4,3' | split: ',' -%}
+        {%- assign sc_longevity = '5,4,4,5' | split: ',' -%}
+        {%- assign sc_notes_underdog = 'Tobacco:90,Cinnamon:80,Whisky:75,Vanilla:60,Clove:50' | split: ',' -%}
+        {%- assign sc_notes_truenorth = 'Cedarwood:85,Pine:75,Mint:60,Sandalwood:55,Floral:35' | split: ',' -%}
+        {%- assign sc_notes_elprez = 'Lemon:90,Lime:80,Tobacco:65,Leather:55,Pepper:40' | split: ',' -%}
+        {%- assign sc_notes_sandal = 'Sandalwood:90,Vanilla:85,Musk:65,Amber:55,Tonka:40' | split: ',' -%}
+        {%- assign sc_smells_underdog = 'Old fashioned,Leather armchair,Fireside,Autumn walk' | split: ',' -%}
+        {%- assign sc_smells_truenorth = 'Pine forest,Morning air,Cedar cabin,Herb garden' | split: ',' -%}
+        {%- assign sc_smells_elprez = 'Lemon grove,Linen shirt,Aftershave,Summer terrace' | split: ',' -%}
+        {%- assign sc_smells_sandal = 'Cashmere,Vanilla candle,Warm skin,Library' | split: ',' -%}
+
+        <div class="byb-scents-grid">
+          {%- for sid in sc_ids -%}
+            {%- assign idx = forloop.index0 -%}
+
+            {%- case sid -%}
+              {%- when 'underdog'  -%}{% assign notes = sc_notes_underdog %}{% assign smells = sc_smells_underdog %}
+              {%- when 'truenorth' -%}{% assign notes = sc_notes_truenorth %}{% assign smells = sc_smells_truenorth %}
+              {%- when 'elprez'    -%}{% assign notes = sc_notes_elprez %}{% assign smells = sc_smells_elprez %}
+              {%- when 'sandal'    -%}{% assign notes = sc_notes_sandal %}{% assign smells = sc_smells_sandal %}
+            {%- endcase -%}
+
+            <div class="byb-scent-card" data-scent="{{ sid }}">
+              <div class="byb-scent-img">
+                <img src="{{ sc_imgs[idx] | asset_url }}" alt="{{ sc_names[idx] }}">
+              </div>
+              <div class="byb-scent-content">
+                <span class="byb-scent-family">{{ sc_families[idx] }}</span>
+                <h3>{{ sc_names[idx] }}</h3>
+                <div class="byb-scent-tagline">{{ sc_taglines[idx] }}</div>
+                <p class="byb-scent-desc">{{ sc_descs[idx] }}</p>
+
+                <div class="byb-notes-section">
+                  <div class="byb-notes-label">Scent profile</div>
+                  {%- for n in notes -%}
+                    {%- assign parts = n | split: ':' -%}
+                    <div class="byb-note-row">
+                      <span class="byb-note-name">{{ parts[0] }}</span>
+                      <div class="byb-note-bar-bg">
+                        <div class="byb-note-bar-fill" data-byb-note-value="{{ parts[1] }}"></div>
+                      </div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+
+                <div class="byb-smells-like">
+                  {%- for s in smells -%}
+                    <span class="byb-smell-tag">{{ s }}</span>
+                  {%- endfor -%}
+                </div>
+
+                <div class="byb-meters">
+                  <div class="byb-meter">
+                    <div class="byb-meter-label">Intensity</div>
+                    <div class="byb-meter-dots">
+                      {%- assign intensity = sc_intensity[idx] | times: 1 -%}
+                      {%- for i in (1..5) -%}
+                        {%- if i <= intensity -%}
+                          <span class="byb-meter-dot active"></span>
+                        {%- else -%}
+                          <span class="byb-meter-dot"></span>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                  <div class="byb-meter">
+                    <div class="byb-meter-label">Longevity</div>
+                    <div class="byb-meter-dots">
+                      {%- assign longevity = sc_longevity[idx] | times: 1 -%}
+                      {%- for i in (1..5) -%}
+                        {%- if i <= longevity -%}
+                          <span class="byb-meter-dot active"></span>
+                        {%- else -%}
+                          <span class="byb-meter-dot"></span>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                </div>
+
+                <button type="button" class="byb-scent-pick-btn" data-byb-pick-fragrance="{{ sid }}">
+                  <span>Add {{ sc_names[idx] }} to bundle</span>
+                  <span class="arr">→</span>
+                </button>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+
+    {%- comment -%} ── HOW IT WORKS RIBBON ── {%- endcomment -%}
+    <section class="byb-how-strip">
+      <div class="byb-how-inner">
+        <div class="byb-how-step">
+          <div class="num">01</div>
+          <h3 class="h">Pick your size</h3>
+          <p class="b">Two, three, or four bottles. Bigger bundle, bigger discount. The four-pack is essentially one free.</p>
+        </div>
+        <div class="byb-how-step">
+          <div class="num">02</div>
+          <h3 class="h">Mix any scents</h3>
+          <p class="b">All four signatures, in any combination — including duplicates. Stock your favourite, sample the rest.</p>
+        </div>
+        <div class="byb-how-step">
+          <div class="num">03</div>
+          <h3 class="h">We ship today</h3>
+          <p class="b">Order by 2pm, ships same-day. Free UK delivery over £40. 60-day money-back if your beard isn't sold.</p>
+        </div>
+      </div>
+    </section>
+
+    {%- comment -%} ── UGC GRID ── {%- endcomment -%}
+    <section class="byb-ugc-strip">
+      <div class="byb-section">
+        <div class="byb-section-head center">
+          <span class="byb-section-eyebrow">#letitgrowbro</span>
+          <h2 class="byb-section-h2">10,000+ bearded <em>brothers.</em></h2>
+          <p class="byb-section-sub">Tag us in your bundle shots. Featured photos get £20 store credit and a slot here.</p>
+        </div>
+
+        {%- assign ugc_imgs = 'byb-portrait-bearded-man.jpg,byb-underdog-square.jpg,byb-bathroom-counter.jpg,byb-true-north.jpg,byb-sandalwood-vanille.jpg,byb-el-presidente.jpg,byb-portrait-bw.jpg,byb-grooming-essentials.jpg' | split: ',' -%}
+        {%- assign ugc_handles = '@dean.morrow,@thefinney,@m.alvarez,@callum.r,@theo.benson,@reza.k,@noah.day,@sambeard' | split: ',' -%}
+        {%- assign ugc_badges = 'Underdog,Trio,Quad,True North,Sandalwood,El Prez,Bundle,Bundle' | split: ',' -%}
+
+        <div class="byb-ugc-grid">
+          {%- for u in ugc_imgs -%}
+            {%- assign idx = forloop.index0 -%}
+            {%- assign large_class = '' -%}
+            {%- if idx == 0 %}{% assign large_class = 'large' %}{% endif -%}
+            <a href="#" class="byb-ugc-tile {{ large_class }}">
+              <img src="{{ u | asset_url }}" alt="">
+              <span class="badge">{{ ugc_badges[idx] }}</span>
+              <span class="handle">{{ ugc_handles[idx] }}</span>
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+
+    {%- comment -%} ── REVIEWS ── {%- endcomment -%}
+    <section class="byb-reviews-section" id="byb-reviews">
+      <div class="byb-section">
+        <div class="byb-section-head center">
+          <span class="byb-section-eyebrow">Verified Reviews</span>
+          <h2 class="byb-section-h2">Real men. <em>Real beards.</em></h2>
+          <p class="byb-section-sub">All reviews are pulled directly from verified purchases. We don't filter, edit or pay for them.</p>
+        </div>
+
+        <div class="byb-review-summary">
+          <div class="byb-review-score">
+            <div class="num">4.8</div>
+            <div class="stars">★★★★★</div>
+            <div class="count">11,427 verified reviews</div>
+          </div>
+          <div class="byb-review-bars">
+            {%- assign br_stars = '5,4,3,2,1' | split: ',' -%}
+            {%- assign br_pcts = '87,9,2,1,1' | split: ',' -%}
+            {%- for s in br_stars -%}
+              {%- assign idx = forloop.index0 -%}
+              <div class="byb-review-bar-row">
+                <span class="lbl">{{ s }} STAR</span>
+                <div class="byb-review-bar-bg"><div class="byb-review-bar-fill" style="width: {{ br_pcts[idx] }}%;"></div></div>
+                <span class="pct">{{ br_pcts[idx] }}%</span>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        {%- assign rv_quotes = 'Underdog smells like a £200 cologne.|I bought it for him. Now I&apos;m stealing it.|Worth every penny. Skin issues gone.|Quad pack is a no-brainer.|Better than my wife&apos;s perfume drawer.|Best gift I have ever given.' | split: '|' -%}
+        {%- assign rv_bodies = 'Bought the trio — Underdog, True North, El Prez. Underdog gets the most compliments by a mile. My beard is softer in week two and the smell hangs around all day. The 25% off four-pack is going to be hard to resist next time.|Got my partner the bundle of four for his birthday. He&apos;s obsessed — and Sandalwood Vanille is now permanently on my pillow. The packaging makes it feel like a proper gift, not a chemist&apos;s bottle.|I had patchy itch under the beard for years. Two weeks of using the True North oil daily and it&apos;s calmed right down. No greasy residue, the scent is fresh without being aggressive. Cancelled my old subscription.|The maths is silly. Four bottles for the price of three. I rotate them by mood — El Prez during the day, Underdog at night. Six weeks in and I&apos;ve barely made a dent in any of them.|Genuinely. The blends are layered — they open differently to how they settle. Underdog goes from smoky to sweet. El Presidente goes from sharp citrus to warm leather. Real perfumery work, not just essential oils dumped in a base.|Bought my dad the trio for Father&apos;s Day. He texted me twice that week to say thank you. He never texts. Take that as you will.' | split: '|' -%}
+        {%- assign rv_names = 'Marcus T.,Sarah K.,Devon R.,Liam H.,Ben C.,Hannah W.' | split: ',' -%}
+        {%- assign rv_ctxs = 'Verified · Bought 3 bottles,Verified · Gift purchase,Verified · 90-day customer,Verified · Quad bundle,Verified · Returning customer,Verified · Gift purchase' | split: ',' -%}
+        {%- assign rv_avatars = 'M,S,D,L,B,H' | split: ',' -%}
+
+        <div class="byb-review-grid">
+          {%- for q in rv_quotes -%}
+            {%- assign idx = forloop.index0 -%}
+            <article class="byb-review-card">
+              <div class="stars">★★★★★</div>
+              <div class="verified">Verified buyer</div>
+              <h4 class="q">"{{ q }}"</h4>
+              <p class="body">{{ rv_bodies[idx] }}</p>
+              <div class="who">
+                <div class="avatar">{{ rv_avatars[idx] }}</div>
+                <div class="meta">
+                  <div class="name">{{ rv_names[idx] }}</div>
+                  <div class="ctx">{{ rv_ctxs[idx] }}</div>
+                </div>
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+
+    {%- comment -%} ── INGREDIENTS ── {%- endcomment -%}
+    <section class="byb-ingr-section">
+      <div class="byb-section">
+        <div class="byb-section-head center">
+          <span class="byb-section-eyebrow">What's inside</span>
+          <h2 class="byb-section-h2">Six oils. <em>Zero compromise.</em></h2>
+        </div>
+        <div class="byb-ingr-grid">
+          <div class="byb-ingr-img"><img src="{{ 'byb-mb-2-hero.jpg' | asset_url }}" alt="Mission Beard ingredients"></div>
+          <div class="byb-ingr-list">
+            {%- assign ig_ics = 'JJ,AR,AL,RB,II,EO' | split: ',' -%}
+            {%- assign ig_hs = 'Cold-pressed Jojoba,Moroccan Argan,Sweet Almond,Rice Bran Oil,Inca Inchi Oil,Artisan Fragrance' | split: ',' -%}
+            {%- assign ig_bs = "Mimics your skin&apos;s natural sebum so the oil absorbs instead of sitting on the surface.|Vitamin E rich. Softens coarse, wiry beard hair within two weeks of daily use.|Lightweight carrier oil that calms the itch and flake under longer beards.|Ultra-light, vitamin-rich and fast-absorbing. Conditions without the greasy after-feel.|Amazonian seed oil packed with omega-3, 6 and 9. Strengthens the hair shaft from root to tip.|Each scent composed by our master perfumer. No fillers, no parabens." | split: '|' -%}
+            {%- for ic in ig_ics -%}
+              {%- assign idx = forloop.index0 -%}
+              <div class="byb-ingr-item">
+                <div class="ic">{{ ic }}</div>
+                <div>
+                  <h4 class="h">{{ ig_hs[idx] }}</h4>
+                  <p class="b">{{ ig_bs[idx] }}</p>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {%- comment -%} ── FAQ ── {%- endcomment -%}
+    <section class="byb-faq-section">
+      <div class="byb-section">
+        <div class="byb-section-head center">
+          <span class="byb-section-eyebrow">Common questions</span>
+          <h2 class="byb-section-h2">Still <em>thinking</em> about it?</h2>
+        </div>
+
+        {%- assign faq_qs = 'How does the build-your-own bundle work?|Why is the four-pack so much cheaper?|How long does each 30ml bottle last?|Are the oils all-natural?|What is the 60-day guarantee?|How fast does it ship?' | split: '|' -%}
+        {%- assign faq_as = "Pick your bundle size — 2, 3 or 4 bottles. Then choose which scents you want to fill it with (any combination, including duplicates of your favourite). The discount applies automatically at checkout.|Because we essentially throw in the fourth bottle for free. The bundle pricing is built around the cost of one bottle being absorbed into the discount. It is the highest-LTV format we sell, so we lean into it.|Roughly 6–8 weeks of daily use on a medium-length beard. Heavier beards or twice-daily applications will run closer to 4–5 weeks.|Yes — every blend is built on a base of cold-pressed jojoba, sweet almond and argan, scented with master-perfumer fragrance compositions of essential oils. No silicones, no parabens, no fillers.|Try the bundle for 60 days. If you don&apos;t see a softer, healthier-looking beard — or you just don&apos;t like the scents — send it back for a full refund. Empty bottles are fine.|UK orders ship same-day if placed before 2pm and arrive in 1–3 working days with free tracked delivery. International orders ship within 24 hours via DHL." | split: '|' -%}
+
+        <div class="byb-faq-list">
+          {%- for q in faq_qs -%}
+            {%- assign idx = forloop.index0 -%}
+            {%- assign open_class = '' -%}
+            {%- if idx == 0 %}{% assign open_class = 'open' %}{% endif -%}
+            <div class="byb-faq-item {{ open_class }}">
+              <button type="button" class="byb-faq-q" data-byb-faq-q>
+                <span>{{ q }}</span>
+                <span class="icon">{% if idx == 0 %}−{% else %}+{% endif %}</span>
+              </button>
+              <div class="byb-faq-a">
+                <div class="byb-faq-a-inner">{{ faq_as[idx] }}</div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+
+    {%- comment -%} ── GUARANTEE ── {%- endcomment -%}
+    <section class="byb-guarantee">
+      <div class="byb-guarantee-inner">
+        <div class="seal">60-Day<br>Beard<br>Guarantee</div>
+        <span class="byb-section-eyebrow">Risk-free</span>
+        <h2 class="byb-section-h2" style="margin-top:14px;">If your beard isn't <em>sold</em> in 60 days, we'll refund the lot.</h2>
+        <p class="byb-section-sub" style="margin: 8px auto 32px; text-align: center;">
+          Use the bundle every day for two months. If your beard isn't softer, fuller-looking, and pulling compliments — empty bottles or full, send it back for every penny back.
+        </p>
+        <a href="#byb-top" class="byb-atc inline">
+          Build my bundle <span class="arr-r">→</span>
+        </a>
+      </div>
+    </section>
+
+    {%- comment -%} ── FOOTER ── {%- endcomment -%}
+    {%- if section.settings.show_footer -%}
+    <footer class="byb-footer">
+      <div class="byb-footer-inner">
+        <div class="byb-footer-mark">
+          <img src="{{ 'byb-let-it-grow-bro.png' | asset_url }}" alt="Let it Grow, Bro" width="160" height="56">
+          <p class="byb-footer-blurb">Premium beard care formulated by cosmetic chemists and fragranced by master perfumers. Made in the UK.</p>
+        </div>
+        <div class="byb-footer-cols">
+          <div>
+            <h4>Shop</h4>
+            <a href="/collections/beard-oil">Beard Oil</a>
+            <a href="/collections/beard-balm">Beard Balm</a>
+            <a href="/collections/wash-and-conditioner">Wash & Conditioner</a>
+            <a href="/collections/bundles">Bundles</a>
+            <a href="/products/gift-card">Gift Cards</a>
+          </div>
+          <div>
+            <h4>Scents</h4>
+            <a href="#fragrances">Underdog</a>
+            <a href="#fragrances">True North</a>
+            <a href="#fragrances">El Presidente</a>
+            <a href="#fragrances">Sandalwood Vanille</a>
+          </div>
+          <div>
+            <h4>Mission</h4>
+            <a href="/pages/our-story">Our Story</a>
+            <a href="/pages/ingredients">Ingredients</a>
+            <a href="/blogs/journal">Journal</a>
+            <a href="#byb-reviews">Reviews</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="/pages/shipping">Shipping</a>
+            <a href="/pages/returns">Returns</a>
+            <a href="/pages/faq">FAQ</a>
+            <a href="/pages/contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="byb-footer-base">
+        <span>© {{ 'now' | date: '%Y' }} Mission Beard Ltd. All rights reserved.</span>
+        <span>Let it Grow, Bro.®</span>
+      </div>
+    </footer>
+    {%- endif -%}
+
+    {%- comment -%} ── STICKY ATC BAR ── {%- endcomment -%}
+    <div class="byb-sticky-atc" data-byb-sticky>
+      <div class="byb-sticky-atc-inner">
+        <div class="left">
+          <div class="img"><img src="{{ 'byb-underdog-square.jpg' | asset_url }}" alt=""></div>
+          <div>
+            <div class="lbl" data-byb-sticky-lbl>Build your bundle · 3-pack</div>
+            <div class="sub" data-byb-sticky-sub>3 bottles remaining</div>
+          </div>
+        </div>
+        <div class="center">
+          <span class="now" data-byb-sticky-now>{{ currency_symbol }}61.20</span>
+          <span class="was" data-byb-sticky-was>{{ currency_symbol }}72.00</span>
+          <span class="save" data-byb-sticky-save>Save {{ currency_symbol }}10.80</span>
+        </div>
+        <div class="right">
+          <button type="button" class="byb-atc" data-byb-sticky-atc disabled>Pick 3 more</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="{{ 'build-your-bundle.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Build Your Bundle",
+  "tag": "section",
+  "class": "byb-shopify-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Pricing"
+    },
+    {
+      "type": "number",
+      "id": "single_price",
+      "label": "Single bottle RRP (no symbol)",
+      "default": 24,
+      "info": "Used to calculate bundle prices. Tier discounts: 10% / 15% / 25%."
+    },
+    {
+      "type": "text",
+      "id": "currency_symbol",
+      "label": "Currency symbol",
+      "default": "£"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show built-in header",
+      "default": true,
+      "info": "Disable if your theme already renders a global header."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_footer",
+      "label": "Show built-in footer",
+      "default": true,
+      "info": "Disable if your theme already renders a global footer."
+    },
+    {
+      "type": "header",
+      "content": "Scent variant IDs",
+      "info": "Paste the Shopify variant ID for each scent. Find these under Products → variant → check the URL."
+    },
+    {
+      "type": "text",
+      "id": "variant_underdog",
+      "label": "Underdog variant ID"
+    },
+    {
+      "type": "text",
+      "id": "variant_truenorth",
+      "label": "True North variant ID"
+    },
+    {
+      "type": "text",
+      "id": "variant_elprez",
+      "label": "El Presidente variant ID"
+    },
+    {
+      "type": "text",
+      "id": "variant_sandal",
+      "label": "Sandalwood Vanille variant ID"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Build Your Bundle"
+    }
+  ]
+}
+{% endschema %}

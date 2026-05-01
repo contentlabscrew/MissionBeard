@@ -1,0 +1,14 @@
+{
+  "layout": "page-blank",
+  "sections": {
+    "main": {
+      "type": "build-your-bundle",
+      "settings": {
+        "single_price": 24,
+        "show_header": true,
+        "show_footer": true
+      }
+    }
+  },
+  "order": ["main"]
+}
