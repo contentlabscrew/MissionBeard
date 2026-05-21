@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mission Beard -- Your favourite scents. Now in balm.</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Permanent+Marker&family=Anton&family=Montserrat:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+
+ --mb-orange: #E98517;
+ --mb-orange-bright: #EF5D28;
+ --mb-orange-soft: #E68F5A;
+ --mb-orange-tan: #CF8663;
+ --mb-amber: #FCA43A;
+
+ --mb-black: #000000;
+ --mb-ink: #23272A;
+ --mb-ink-deep: #161213;
+ --mb-ink-shadow: #090A0A;
+ --mb-coffee: #3F3229;
+ --mb-mahogany: #290012;
+
+ --mb-paper: #FFFFFF;
+ --mb-bone: #F2E9D6;
+ --mb-stone: #BCBEC0;
+ --mb-fog: #A9B3C4;
+ --mb-mist: #D9D9D9;
+
+ --mb-underdog: #E67E06;
+ --mb-underdog-2: #B26B44;
+ --mb-el-presidente: #C8DA2F;
+ --mb-true-north: #4FBD9D;
+ --mb-true-north-2: #3C2E39;
+ --mb-sandalwood: #987157;
+
+ --fg-1: var(--mb-black);
+ --fg-2: var(--mb-ink);
+ --fg-3: #4A4A4A;
+ --fg-on-dark: var(--mb-paper);
+ --fg-on-dark-soft: rgba(255,255,255,0.75);
+
+ --bg-1: var(--mb-paper);
+ --bg-2: var(--mb-bone);
+ --bg-dark: var(--mb-ink);
+ --bg-darker: var(--mb-ink-deep);
+
+ --accent: var(--mb-orange);
+ --accent-hot: var(--mb-orange-bright);
+
+ --border-hairline: rgba(0,0,0,0.10);
+ --border-light: rgba(255,255,255,0.40);
+ --border-frame: #FFFFFF;
+ --border-frame-w: 3px;
+
+ --font-display: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
+
+ --font-display-alt: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
+
+ --font-sans: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+
+ --font-body: 'Montserrat', 'Inter', system-ui, sans-serif;
+
+ --font-hand: 'Jameson SS Round', 'Patrick Hand', 'Caveat', cursive;
+
+ --s-1: 4px;
+ --s-2: 8px;
+ --s-3: 12px;
+ --s-4: 16px;
+ --s-5: 24px;
+ --s-6: 32px;
+ --s-7: 48px;
+ --s-8: 64px;
+ --s-9: 96px;
+
+ --r-0: 0px;
+ --r-1: 2px;
+ --r-2: 6px;
+ --r-3: 12px;
+ --r-pill: 999px;
+
+ --shadow-1: 0 1px 2px rgba(0,0,0,0.10);
+ --shadow-2: 0 6px 16px rgba(0,0,0,0.18);
+ --shadow-3: 0 24px 60px rgba(0,0,0,0.35);
+ --shadow-product: 0 30px 60px -20px rgba(0,0,0,0.55), 0 12px 24px -8px rgba(143,76,31,0.35);
+}
+
+.mb-display-xl,
+h1.mb {
+ font-family: var(--font-display);
+ font-weight: 400;
+ font-size: clamp(72px, 9vw, 160px);
+ line-height: 0.95;
+ letter-spacing: -0.005em;
+ text-transform: uppercase;
+ color: var(--fg-on-dark);
+ text-wrap: balance;
+}
+
+.mb-display-l,
+h2.mb {
+ font-family: var(--font-display);
+ font-weight: 400;
+ font-size: clamp(56px, 6vw, 110px);
+ line-height: 1.0;
+ text-transform: uppercase;
+ color: var(--fg-on-dark);
+ text-wrap: balance;
+}
+
+.mb-display-m,
+h3.mb {
+ font-family: var(--font-display);
+ font-weight: 400;
+ font-size: clamp(40px, 4vw, 70px);
+ line-height: 1.0;
+ text-transform: uppercase;
+ color: var(--fg-on-dark);
+ text-wrap: balance;
+}
+
+.mb-eyebrow {
+ font-family: var(--font-display-alt);
+ font-weight: 400;
+ font-size: 14px;
+ line-height: 1.0;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ color: var(--accent);
+}
+
+.mb-product-name {
+ font-family: var(--font-display-alt);
+ font-weight: 400;
+ font-size: clamp(40px, 4vw, 80px);
+ line-height: 0.95;
+ letter-spacing: 0.02em;
+ text-transform: uppercase;
+ color: var(--fg-on-dark);
+}
+
+.mb-subhead,
+h4.mb {
+ font-family: var(--font-body);
+ font-weight: 600;
+ font-size: 32px;
+ line-height: 1.15;
+ color: var(--fg-on-dark);
+}
+
+.mb-body-l {
+ font-family: var(--font-body);
+ font-weight: 400;
+ font-size: 22px;
+ line-height: 1.45;
+ color: inherit;
+}
+
+.mb-body,
+p.mb {
+ font-family: var(--font-sans);
+ font-weight: 400;
+ font-size: 16px;
+ line-height: 1.55;
+ color: inherit;
+}
+
+.mb-caption {
+ font-family: var(--font-sans);
+ font-weight: 400;
+ font-size: 13px;
+ line-height: 1.4;
+ color: var(--fg-3);
+}
+
+.mb-tag {
+ font-family: var(--font-display-alt);
+ font-weight: 400;
+ font-size: 12px;
+ line-height: 1;
+ letter-spacing: 0.22em;
+ text-transform: uppercase;
+}
+
+.mb-frame {
+ border: var(--border-frame-w) solid var(--border-frame);
+ background: var(--mb-ink);
+ color: var(--fg-on-dark);
+ position: relative;
+ overflow: hidden;
+}
+.mb-frame--ink-on-paper {
+ border-color: var(--mb-black);
+ background: var(--mb-bone);
+ color: var(--mb-black);
+}
+
+.mb-pill {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ background: #fff;
+ color: #000;
+ font-family: var(--font-display);
+ padding: 10px 22px;
+ font-size: 28px;
+ line-height: 1;
+}
+
+</style>
+<style>
+
+ :root {
+ --email-w: 640px;
+ --inset: 32px;
+ --inset-mob: 20px;
+ }
+ *, *::before, *::after { box-sizing: border-box; }
+ html, body { margin: 0; padding: 0; }
+ body {
+ font-family: var(--font-sans);
+ background: #E9E6DF;
+ color: var(--fg-1);
+ -webkit-font-smoothing: antialiased;
+ text-rendering: optimizeLegibility;
+ }
+
+ .inbox {
+ max-width: 880px;
+ margin: 0 auto;
+ padding: 48px 24px 96px;
+ }
+ .inbox-meta {
+ background: #fff;
+ border: 1px solid rgba(0,0,0,0.08);
+ border-bottom: 0;
+ padding: 20px 28px 22px;
+ border-radius: 4px 4px 0 0;
+ }
+ .inbox-meta-row {
+ display: flex;
+ gap: 16px;
+ font-size: 13px;
+ line-height: 1.5;
+ color: var(--fg-3);
+ }
+ .inbox-meta-row + .inbox-meta-row { margin-top: 6px; }
+ .inbox-meta-label {
+ width: 64px;
+ text-transform: uppercase;
+ letter-spacing: 0.12em;
+ font-size: 11px;
+ font-weight: 600;
+ color: #8A8A8A;
+ padding-top: 1px;
+ flex-shrink: 0;
+ }
+ .inbox-meta-value { color: var(--fg-1); font-weight: 500; }
+ .inbox-meta-value strong { font-weight: 700; }
+ .inbox-subject {
+ font-family: var(--font-display-alt);
+ font-size: 22px;
+ line-height: 1.15;
+ letter-spacing: 0.01em;
+ color: var(--fg-1);
+ margin: 0 0 14px;
+ }
+ .inbox-preview {
+ font-size: 13px;
+ color: #6E6E6E;
+ margin-top: 14px;
+ padding-top: 14px;
+ border-top: 1px dashed rgba(0,0,0,0.10);
+ font-style: italic;
+ }
+ .inbox-preview b { font-weight: 600; font-style: normal; color: #4a4a4a; }
+
+ .email {
+ width: 100%;
+ max-width: var(--email-w);
+ margin: 0 auto;
+ background: var(--mb-ink-deep);
+ color: var(--fg-on-dark);
+ }
+
+ .preheader {
+ display: none !important;
+ visibility: hidden;
+ opacity: 0;
+ height: 0;
+ width: 0;
+ overflow: hidden;
+ }
+
+ .email-header {
+ background: transparent;
+ padding: 18px var(--inset) 8px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 12px;
+ position: relative;
+ z-index: 5;
+ }
+ .email-header .mark {
+ width: 36px; height: 36px;
+ display: inline-block;
+ background: url('https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/a1e875c4-904b-4324-a032-6a7979e94fc8.png') center/contain no-repeat;
+ }
+ .email-header .view-online {
+ font-family: var(--font-sans);
+ font-size: 11px;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.78);
+ text-decoration: none;
+ font-weight: 600;
+ }
+ .email-header .view-online:hover { color: var(--mb-orange); }
+
+ .hero {
+ --sky: #5093d4;
+ --sand: #fee0b1;
+ position: relative;
+ background: var(--sand);
+ padding: 0 0 38px;
+ text-align: center;
+ overflow: hidden;
+ }
+
+ .hero-image-wrap {
+ position: relative;
+ background: var(--sky);
+ }
+ .hero-copy-top {
+ position: absolute;
+ top: 14%; left: 0; right: 0;
+ z-index: 2;
+ padding: 0 var(--inset);
+ text-align: center;
+ }
+
+ .eyebrow {
+ font-family: var(--font-display-alt);
+ font-size: 14px;
+ letter-spacing: 0.34em;
+ text-transform: uppercase;
+ color: var(--mb-orange);
+ margin: 0;
+ display: inline-flex;
+ align-items: center;
+ gap: 12px;
+ }
+ .eyebrow::before, .eyebrow::after {
+ content: "";
+ width: 26px;
+ height: 1.5px;
+ background: var(--mb-orange);
+ opacity: 0.9;
+ }
+
+ .hero-headline {
+ font-family: var(--font-display);
+ font-weight: 400;
+ font-size: clamp(52px, 9.6vw, 76px);
+ line-height: 0.96;
+ text-transform: uppercase;
+ color: #FFFFFF;
+ margin: 10px auto 0;
+ max-width: 14ch;
+ text-wrap: balance;
+ letter-spacing: -0.005em;
+ text-shadow: 0 2px 18px rgba(20,32,48,0.35);
+ }
+ .hero-headline em {
+ font-style: normal;
+ color: var(--mb-orange);
+ display: inline-block;
+ }
+
+ .hero-photo {
+ display: block;
+ width: 100%;
+ height: auto;
+ margin: 0;
+ -webkit-user-drag: none;
+ position: relative;
+ z-index: 1;
+ }
+
+ .hero .email-header {
+ position: absolute;
+ top: 0; left: 0; right: 0;
+ z-index: 4;
+ }
+ .hero-image-wrap { padding-top: 0; }
+
+ .hero-bottom {
+ position: relative;
+ z-index: 2;
+ padding: 4px var(--inset) 0;
+ margin-top: -4px;
+ }
+
+ .hero-sub {
+ font-family: var(--font-body);
+ font-weight: 600;
+ font-size: 16.5px;
+ line-height: 1.5;
+ color: rgba(35,28,18,0.78);
+ margin: 0 auto;
+ max-width: 38ch;
+ text-wrap: balance;
+ }
+ .hero-sub b { color: #2A1F12; font-weight: 700; }
+
+ .cta {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+ font-family: var(--font-display-alt);
+ font-size: 15px;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ color: #fff;
+ background: var(--mb-orange);
+ padding: 18px 32px;
+ text-decoration: none;
+ border: 0;
+ border-radius: var(--r-1);
+ transition: background 0.2s cubic-bezier(0.2,0.8,0.2,1), transform 0.08s;
+ cursor: pointer;
+ box-shadow: 0 8px 24px -8px rgba(233,133,23,0.55);
+ }
+ .cta:hover { background: var(--mb-orange-bright); }
+ .cta:active { transform: scale(0.97); }
+ .cta .arrow { font-family: var(--font-sans); font-weight: 600; }
+
+ .cta--lg { padding: 20px 36px; font-size: 16px; }
+ .cta--ghost {
+ background: transparent;
+ color: var(--fg-on-dark);
+ border: 1.5px solid rgba(255,255,255,0.32);
+ padding: 14px 24px;
+ font-size: 13px;
+ }
+ .cta--ghost:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.55); color: #fff; }
+
+ .hero-cta-wrap { margin-top: 22px; }
+
+ .hero-seam {
+ height: 36px;
+ background: linear-gradient(180deg, #fee0b1 0%, var(--mb-ink-deep) 100%);
+ position: relative;
+ }
+
+ .context {
+ background: var(--mb-ink-deep);
+ padding: 52px var(--inset) 14px;
+ text-align: center;
+ }
+ .context-rule {
+ width: 28px;
+ height: 1px;
+ background: var(--mb-orange);
+ margin: 0 auto 22px;
+ }
+ .context p {
+ font-family: var(--font-body);
+ font-size: 15px;
+ line-height: 1.75;
+ color: rgba(255,255,255,0.78);
+ margin: 0 auto;
+ max-width: 46ch;
+ text-wrap: pretty;
+ }
+ .context p b { color: #fff; font-weight: 600; }
+
+ .scents {
+ background: var(--mb-ink-deep);
+ padding: 36px var(--inset) 48px;
+ }
+ .scents-heading {
+ text-align: center;
+ margin: 0 0 28px;
+ }
+ .scents-heading .label {
+ font-family: var(--font-display-alt);
+ font-size: 11px;
+ letter-spacing: 0.32em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.55);
+ margin-bottom: 6px;
+ }
+ .scents-heading h2 {
+ font-family: var(--font-display);
+ font-size: 38px;
+ line-height: 1;
+ text-transform: uppercase;
+ color: #fff;
+ margin: 0;
+ }
+
+ .scent-grid {
+ display: grid;
+ grid-template-columns: 1fr;
+ gap: 18px;
+ }
+
+ .scent-card {
+ --scent: var(--mb-orange);
+ position: relative;
+ background: var(--mb-ink);
+ border: 1px solid rgba(255,255,255,0.06);
+ overflow: hidden;
+ display: grid;
+ grid-template-columns: 44% 1fr;
+ gap: 0;
+ min-height: 240px;
+ }
+ .scent-card .media {
+ position: relative;
+ background: #000 center/cover no-repeat;
+ aspect-ratio: 1 / 1;
+ min-height: 240px;
+ }
+ .scent-card .media::after {
+
+ content: "";
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(90deg, rgba(0,0,0,0) 70%, rgba(35,39,42,0.55) 100%);
+ }
+ .scent-card .scent-color-bar {
+ position: absolute;
+ left: 0; right: 0; top: 0;
+ height: 3px;
+ background: var(--scent);
+ }
+ .scent-card .body {
+ padding: 22px 22px 22px;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ }
+ .scent-card .new-pill {
+ align-self: flex-start;
+ font-family: var(--font-display-alt);
+ font-size: 10px;
+ letter-spacing: 0.28em;
+ text-transform: uppercase;
+ color: var(--scent);
+ padding: 5px 10px;
+ border: 1px solid color-mix(in srgb, var(--scent) 55%, transparent);
+ border-radius: var(--r-1);
+ background: color-mix(in srgb, var(--scent) 10%, transparent);
+ line-height: 1;
+ }
+ .scent-card h3 {
+ font-family: var(--font-display);
+ font-size: 36px;
+ line-height: 0.95;
+ text-transform: uppercase;
+ color: #fff;
+ margin: 4px 0 0;
+ letter-spacing: -0.005em;
+ }
+ .scent-card .desc {
+ font-family: var(--font-body);
+ font-weight: 600;
+ font-size: 14px;
+ line-height: 1.45;
+ color: rgba(255,255,255,0.82);
+ margin: 2px 0 6px;
+ }
+ .scent-card .notes {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 6px;
+ margin: 0 0 14px;
+ }
+ .scent-card .notes .note {
+ font-family: var(--font-sans);
+ font-size: 11px;
+ font-weight: 500;
+ letter-spacing: 0.04em;
+ color: rgba(255,255,255,0.78);
+ padding: 5px 10px;
+ border-radius: var(--r-pill);
+ background: rgba(255,255,255,0.05);
+ border: 1px solid rgba(255,255,255,0.10);
+ white-space: nowrap;
+ }
+ .scent-card .row-cta {
+ margin-top: auto;
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ align-self: flex-start;
+ font-family: var(--font-display-alt);
+ font-size: 12px;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ color: #fff;
+ text-decoration: none;
+ padding-bottom: 4px;
+ border-bottom: 1.5px solid var(--scent);
+ transition: color 0.2s, gap 0.2s;
+ }
+ .scent-card .row-cta:hover {
+ color: var(--scent);
+ gap: 12px;
+ }
+ .scent-card .row-cta .arrow { font-family: var(--font-sans); }
+
+ .scent-card.true-north { --scent: var(--mb-true-north); }
+ .scent-card.true-north .media { background-image: url('https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/efe75a25-1028-4e6a-887d-185a55a7324f.jpeg'); background-position: center; }
+
+ .scent-card.el-presidente { --scent: var(--mb-el-presidente); }
+ .scent-card.el-presidente .media {
+ background-image: url('https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/a5981601-acc9-4a56-adef-51d44c1e2277.jpeg');
+ background-position: center 60%;
+ }
+
+ .scent-card.sandalwood { --scent: var(--mb-sandalwood); }
+ .scent-card.sandalwood .media {
+ background-image: url('https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/ad9e8229-efa4-4db9-bc6b-056a9a50adf1.jpeg');
+ background-position: center 65%;
+ }
+
+ .proof {
+ background: #0d0d0e;
+ border-top: 1px solid rgba(255,255,255,0.06);
+ border-bottom: 1px solid rgba(255,255,255,0.06);
+ padding: 18px var(--inset);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-wrap: wrap;
+ gap: 6px 18px;
+ font-family: var(--font-body);
+ font-size: 12.5px;
+ color: rgba(255,255,255,0.78);
+ letter-spacing: 0.02em;
+ text-align: center;
+ }
+ .proof .stars { color: var(--mb-amber); letter-spacing: 0.06em; font-size: 14px; }
+ .proof .dot { color: rgba(255,255,255,0.28); }
+ .proof b { color: #fff; font-weight: 600; }
+ .proof .gq { font-family: var(--font-display-alt); letter-spacing: 0.18em; font-size: 12px; }
+
+ .kit {
+ background: var(--mb-coffee);
+ color: #fff;
+ padding: 40px var(--inset) 44px;
+ position: relative;
+ overflow: hidden;
+ }
+ .kit::before {
+ content: "";
+ position: absolute;
+ width: 460px; height: 460px;
+ border-radius: 50%;
+ background: radial-gradient(circle at 50% 50%, rgba(233,133,23,0.22), transparent 60%);
+ top: -200px; right: -160px;
+ pointer-events: none;
+ }
+ .kit-inner { position: relative; }
+
+ .kit-pair {
+ display: block;
+ margin: 0 auto 22px;
+ max-width: 420px;
+ }
+ .kit-pair img {
+ display: block;
+ width: 100%;
+ height: auto;
+ -webkit-user-drag: none;
+ }
+
+ .kit-copy { text-align: center; }
+ .kit-copy h3 {
+ font-family: var(--font-display);
+ font-size: 36px;
+ line-height: 1;
+ text-transform: uppercase;
+ color: #fff;
+ margin: 0 0 10px;
+ text-wrap: balance;
+ }
+ .kit-copy h3 em { font-style: normal; color: var(--mb-amber); }
+ .kit-copy p {
+ font-family: var(--font-body);
+ font-weight: 500;
+ font-size: 14.5px;
+ line-height: 1.55;
+ color: rgba(255,255,255,0.85);
+ margin: 0 auto 20px;
+ max-width: 42ch;
+ text-wrap: pretty;
+ }
+ .kit .cta { background: #fff; color: var(--mb-coffee); }
+ .kit .cta:hover { background: var(--mb-bone); }
+
+ .risk {
+ background: var(--mb-ink-deep);
+ padding: 30px var(--inset);
+ text-align: center;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 14px;
+ }
+ .risk .shield {
+ width: 32px; height: 32px;
+ flex-shrink: 0;
+ color: var(--mb-orange);
+ }
+ .risk p {
+ font-family: var(--font-body);
+ font-weight: 500;
+ font-size: 13.5px;
+ line-height: 1.5;
+ color: rgba(255,255,255,0.72);
+ margin: 0;
+ max-width: 44ch;
+ text-align: left;
+ text-wrap: pretty;
+ }
+ .risk p b { color: #fff; font-weight: 600; }
+
+ .footer {
+ background: var(--mb-ink-shadow);
+ padding: 36px var(--inset) 28px;
+ text-align: center;
+ color: rgba(255,255,255,0.5);
+ font-family: var(--font-body);
+ font-size: 12px;
+ line-height: 1.6;
+ }
+ .footer .wordmark {
+ width: 180px;
+ margin: 0 auto 18px;
+ display: block;
+ filter: invert(1) brightness(1.1);
+ opacity: 0.9;
+ }
+ .footer .shop-links {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ gap: 20px;
+ margin: 0 0 22px;
+ padding: 0;
+ list-style: none;
+ }
+ .footer .shop-links a {
+ font-family: var(--font-display-alt);
+ font-size: 11px;
+ letter-spacing: 0.24em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.75);
+ text-decoration: none;
+ }
+ .footer .shop-links a:hover { color: var(--mb-orange); }
+ .footer .socials {
+ display: flex;
+ justify-content: center;
+ gap: 14px;
+ margin-bottom: 22px;
+ }
+ .footer .socials a {
+ width: 32px; height: 32px;
+ border: 1px solid rgba(255,255,255,0.20);
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ color: rgba(255,255,255,0.65);
+ text-decoration: none;
+ transition: border-color 0.2s, color 0.2s;
+ }
+ .footer .socials a:hover { border-color: var(--mb-orange); color: var(--mb-orange); }
+ .footer .socials svg { width: 14px; height: 14px; }
+ .footer .address {
+ margin: 0;
+ font-size: 11px;
+ color: rgba(255,255,255,0.4);
+ letter-spacing: 0.02em;
+ }
+ .footer .address a { color: rgba(255,255,255,0.55); text-decoration: underline; text-decoration-color: rgba(255,255,255,0.20); text-underline-offset: 3px; }
+ .footer .address a:hover { color: var(--mb-orange); }
+ .footer .strapline {
+ font-family: var(--font-display);
+ font-size: 22px;
+ color: var(--mb-orange);
+ text-transform: uppercase;
+ letter-spacing: 0.02em;
+ margin: 0 0 6px;
+ line-height: 1;
+ }
+ .footer .strapline::after {
+ content: "";
+ display: block;
+ width: 36px;
+ height: 2px;
+ background: var(--mb-orange);
+ margin: 8px auto 0;
+ }
+ .footer hr.rule {
+ border: 0;
+ border-top: 1px solid rgba(255,255,255,0.08);
+ margin: 22px 0 18px;
+ }
+ .footer .unsub {
+ margin-top: 10px;
+ font-size: 11px;
+ color: rgba(255,255,255,0.40);
+ }
+ .footer .unsub a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+
+ @media (max-width: 560px) {
+ .inbox { padding: 18px 0 60px; }
+ .inbox-meta { border-radius: 0; border-left: 0; border-right: 0; padding: 16px 18px; }
+ :root { --inset: var(--inset-mob); }
+ .scent-card { grid-template-columns: 1fr; }
+ .scent-card .media { aspect-ratio: 1 / 1; min-height: 0; }
+ .scent-card .body { padding: 20px 18px 20px; }
+ .hero-headline { font-size: 48px; }
+ .hero-copy-top { top: 12%; }
+ .scents-heading h2 { font-size: 32px; }
+ .kit-copy h3 { font-size: 30px; }
+ }
+</style>
+</head>
+<body data-screen-label="01 New Balm Launches Email">
+
+ <div class="email" role="article" aria-roledescription="email" aria-label="Mission Beard new balm launches">
+ <span class="preheader">True North, El Presidente and Sandalwood Vanille -- our cult-favourite balm, now in three more scents.</span>
+
+ <section class="hero" data-section="hero">
+
+ <header class="email-header">
+ <a href="#" aria-label="Mission Beard"><span class="mark" role="img" aria-label="Mission Beard"></span></a>
+ <a class="view-online" href="#">View in browser</a>
+ </header>
+
+ <div class="hero-image-wrap">
+ <div class="hero-copy-top">
+ <div class="eyebrow">New in</div>
+ <h1 class="hero-headline">Your favourite scents.<br><em>Now in balm.</em></h1>
+ </div>
+ <img class="hero-photo" src="https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/bc19b64d-47df-4e8f-ad5a-5e7019fd400f.jpeg" alt="All four Mission Beard balms -- Underdog, El Presidente, True North and Sandalwood Vanille -- floating against a sunset sky" />
+ </div>
+
+ <div class="hero-bottom">
+ <p class="hero-sub">True North, El Presidente and Sandalwood Vanille -- <b>our cult-favourite balm</b>, now in three more scents.</p>
+
+ <div class="hero-cta-wrap">
+ <a href="https://missionbeard.com/products/underdog-beard-balm" class="cta cta--lg">Shop the new balms <span class="arrow">&rarr;</span></a>
+ </div>
+ </div>
+ </section>
+
+ <div class="hero-seam" aria-hidden="true"></div>
+
+ <section class="context" data-section="context">
+ <div class="context-rule"></div>
+ <p>Until now, our balm only came in Underdog. <b>That's changed.</b> Same UK-made formula, same medium hold, same cosmetic-chemist-formulated base -- now in the three scents you've been asking for.</p>
+ </section>
+
+ <section class="scents" data-section="scents">
+ <div class="scents-heading">
+ <div class="label">Pick your scent</div>
+ <h2>Three new balms</h2>
+ </div>
+
+ <div class="scent-grid">
+
+ <article class="scent-card true-north">
+ <div class="scent-color-bar"></div>
+ <div class="media" role="img" aria-label="True North beard balm tin on stone, with pine"></div>
+ <div class="body">
+ <span class="new-pill">New &middot; True North</span>
+ <h3>True North</h3>
+ <p class="desc">Fresh, forested, grounding. The one that clears your head.</p>
+ <div class="notes">
+ <span class="note">Pine</span>
+ <span class="note">Cedarwood</span>
+ <span class="note">Mint</span>
+ <span class="note">Lavender</span>
+ </div>
+ <a href="https://missionbeard.com/products/true-north-beard-balm" class="row-cta">Shop True North balm <span class="arrow">&rarr;</span></a>
+ </div>
+ </article>
+
+ <article class="scent-card el-presidente">
+ <div class="scent-color-bar"></div>
+ <div class="media" role="img" aria-label="El Presidente beard balm tin on moss, with lemons and limes" style="background-size: cover"></div>
+ <div class="body">
+ <span class="new-pill">New &middot; El Presidente</span>
+ <h3>El Presidente</h3>
+ <p class="desc">Bright, spiced, woody. Sharp without being loud.</p>
+ <div class="notes">
+ <span class="note">Citrus</span>
+ <span class="note">Cedarwood</span>
+ <span class="note">Ginger</span>
+ </div>
+ <a href="https://missionbeard.com/products/el-presidente-beard-balm" class="row-cta">Shop El Presidente balm <span class="arrow">&rarr;</span></a>
+ </div>
+ </article>
+
+ <article class="scent-card sandalwood">
+ <div class="scent-color-bar"></div>
+ <div class="media" role="img" aria-label="Sandalwood Vanille beard balm tin with vanilla flower, warm bokeh"></div>
+ <div class="body">
+ <span class="new-pill">New &middot; Sandalwood Vanille</span>
+ <h3>Sandalwood Vanille</h3>
+ <p class="desc">Warm, creamy, lingering. The crowd-pleaser.</p>
+ <div class="notes">
+ <span class="note">Sandalwood</span>
+ <span class="note">Vanilla</span>
+ </div>
+ <a href="https://missionbeard.com/products/sandalwood-vanille-beard-balm" class="row-cta">Shop Sandalwood Vanille balm <span class="arrow">&rarr;</span></a>
+ </div>
+ </article>
+
+ </div>
+ </section>
+
+ <section class="proof" data-section="proof" aria-label="Social proof">
+ <span class="stars" aria-label="4.82 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+ <span><b>4.82</b> from <b>750+</b> reviews</span>
+ <span class="dot">&middot;</span>
+ <span><b>10,000+</b> customers</span>
+ <span class="dot">&middot;</span>
+ <span>As featured in <span class="gq">GQ</span></span>
+ </section>
+
+ <section class="kit" data-section="kit">
+ <div class="kit-inner">
+ <div class="kit-pair" aria-hidden="true">
+ <img src="https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/9b6af188-c00c-4a07-953f-4ca9038240d3.jpeg" alt="Mission Beard oils and balms in all four scents" />
+ </div>
+ <div class="kit-copy">
+ <h3>WANT THE OIL TOO?
+COMPLETE THE SET.</h3>
+ <p>Pair any scent with its matching balm. Grab the Beard Basics Kit (oil + balm, £27.99) in your favourite scent.</p>
+ <a href="https://missionbeard.com/products/the-beard-basics-kit" class="cta">Shop the Beard Basics Kit <span class="arrow">&rarr;</span></a>
+ </div>
+ </div>
+ </section>
+
+ <section class="risk" data-section="risk">
+ <svg class="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+ <path d="M12 2 4 5v7c0 4.5 3.2 8.5 8 10 4.8-1.5 8-5.5 8-10V5l-8-3z"/>
+ <path d="m8.5 12.2 2.4 2.4L15.8 9.7"/>
+ </svg>
+ <p><b>Not the scent for you?</b> Send it back within 60 days for a full refund. No questions, no hoops.</p>
+ </section>
+
+ <footer class="footer" data-section="footer">
+ <img class="wordmark" src="https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/8a6f25aa-c78a-4309-a499-08fae10ad1b9.png" alt="Let it Grow, Bro." />
+
+ <ul class="shop-links">
+ <li><a href="#oils">Beard Oils</a></li>
+ <li><a href="#balms">Beard Balms</a></li>
+ <li><a href="#kits">Kits</a></li>
+ <li><a href="#story">Our Story</a></li>
+ </ul>
+
+ <div class="socials">
+ <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+ <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.5 2.1 4.1 4.5 4.4"/></svg></a>
+ <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V7.2c0-.7.5-1.2 1.2-1.2H17V3h-2.5C12.5 3 11 4.5 11 6.7V9H9v3h2v9h3v-9h2.3l.5-3H14z"/></svg></a>
+ <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9.5 5 2.5-5 2.5V9.5z" fill="currentColor"/></svg></a>
+ </div>
+
+ <p class="strapline">Let it Grow, Bro.&reg;</p>
+
+ <hr class="rule" />
+
+ <p class="address">
+ Mission Beard Grooming Co. &middot; Unit 4, The Old Forge, Bristol BS1 4DJ, United Kingdom<br>
+ You're receiving this because you joined the Mission Beard list.
+ </p>
+ <p class="unsub">
+ <a href="#prefs">Update preferences</a> &nbsp;&middot;&nbsp; {% unsubscribe 'Unsubscribe' %}
+ </p>
+ </footer>
+
+ </div>
+</body>
+</html>
