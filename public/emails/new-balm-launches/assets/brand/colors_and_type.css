@@ -1,0 +1,248 @@
+/* ─────────────────────────────────────────────────────────────────
+   MISSION BEARD — Colors & Type Foundation
+   Premium beard care • Let it Grow, Bro.®
+   ───────────────────────────────────────────────────────────────── */
+
+/* ---- Webfonts ----
+   - Jameson SS Round  → LICENSED brand font, served from /fonts (✓ active)
+   - Jameson SS Splash → brush script, NOT uploaded yet → substituted with
+                         "Caveat Brush" from Google Fonts. Flag to user.
+   - Anton, Montserrat, Inter → Google Fonts (Anton is the open match for the
+                                 Impact-style condensed sans seen in Figma)
+*/
+@font-face {
+  font-family: 'Jameson SS Round';
+  src: url('fonts/JamesonSSRound.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* Other Montserrat weights + Inter, Caveat Brush, Anton come from Google Fonts
+   until the rest of the licensed family is uploaded. */
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Permanent+Marker&family=Anton&family=Montserrat:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ── BRAND COLORS ─────────────────────────────────────────────── */
+  --mb-orange:        #E98517;   /* primary brand orange — logo, accents */
+  --mb-orange-bright: #EF5D28;   /* heated orange, used in headline ads */
+  --mb-orange-soft:   #E68F5A;   /* warm tan, product backgrounds */
+  --mb-orange-tan:    #CF8663;   /* mid product-bg tan */
+  --mb-amber:         #FCA43A;   /* secondary accent, highlights */
+
+  /* ── INK / NEUTRALS ───────────────────────────────────────────── */
+  --mb-black:         #000000;   /* logo & body */
+  --mb-ink:           #23272A;   /* primary card / ad bg — most used dark */
+  --mb-ink-deep:      #161213;   /* deeper than ink */
+  --mb-ink-shadow:    #090A0A;   /* near-black */
+  --mb-coffee:        #3F3229;   /* warm dark brown, used in product imagery */
+  --mb-mahogany:      #290012;   /* deep maroon ink (headline-ad bg) */
+
+  --mb-paper:         #FFFFFF;
+  --mb-bone:          #F2E9D6;   /* cream ad backgrounds */
+  --mb-stone:         #BCBEC0;   /* neutral grey used in copy */
+  --mb-fog:           #A9B3C4;   /* cool grey */
+  --mb-mist:          #D9D9D9;
+
+  /* ── SCENT / PRODUCT-LINE COLORS ──────────────────────────────── */
+  /* Each scent has a signature color used for product backgrounds.
+     Confirmed by user 2026-04-27. */
+  --mb-underdog:      #E67E06;   /* smoke + spiced bourbon — vivid orange */
+  --mb-underdog-2:    #B26B44;
+  --mb-el-presidente: #C8DA2F;   /* warm tobacco / leather — chartreuse  */
+  --mb-true-north:    #4FBD9D;   /* fresh citrus zest — sea green        */
+  --mb-true-north-2:  #3C2E39;
+  --mb-sandalwood:    #987157;   /* sandalwood vanille — warm taupe      */
+
+  /* ── SEMANTIC ─────────────────────────────────────────────────── */
+  --fg-1:             var(--mb-black);
+  --fg-2:             var(--mb-ink);
+  --fg-3:             #4A4A4A;
+  --fg-on-dark:       var(--mb-paper);
+  --fg-on-dark-soft:  rgba(255,255,255,0.75);
+
+  --bg-1:             var(--mb-paper);
+  --bg-2:             var(--mb-bone);
+  --bg-dark:          var(--mb-ink);
+  --bg-darker:        var(--mb-ink-deep);
+
+  --accent:           var(--mb-orange);
+  --accent-hot:       var(--mb-orange-bright);
+
+  --border-hairline:  rgba(0,0,0,0.10);
+  --border-light:     rgba(255,255,255,0.40);
+  --border-frame:     #FFFFFF;          /* the iconic white 3px ad frame */
+  --border-frame-w:   3px;
+
+  /* ── TYPE ─────────────────────────────────────────────────────── */
+  /* Display / headline — Jameson SS Round, the licensed brand face */
+  --font-display:     'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
+  /* Display alt — condensed sans, used for product names & all-caps slabs */
+  --font-display-alt: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
+  /* UI / body sans */
+  --font-sans:        'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+  /* Marketing body / subheads — Montserrat SemiBold */
+  --font-body:        'Montserrat', 'Inter', system-ui, sans-serif;
+  /* Hand-drawn tag voice — same Jameson SS Round, used at smaller sizes */
+  --font-hand:        'Jameson SS Round', 'Patrick Hand', 'Caveat', cursive;
+
+  /* ── SPACING ──────────────────────────────────────────────────── */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+
+  /* ── RADIUS ───────────────────────────────────────────────────── */
+  --r-0:  0px;        /* the brand uses sharp corners almost everywhere */
+  --r-1:  2px;
+  --r-2:  6px;
+  --r-3:  12px;
+  --r-pill: 999px;
+
+  /* ── SHADOW ───────────────────────────────────────────────────── */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.10);
+  --shadow-2: 0 6px 16px rgba(0,0,0,0.18);
+  --shadow-3: 0 24px 60px rgba(0,0,0,0.35);
+  --shadow-product: 0 30px 60px -20px rgba(0,0,0,0.55), 0 12px 24px -8px rgba(143,76,31,0.35);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   SEMANTIC TYPOGRAPHIC SCALE
+   ───────────────────────────────────────────────────────────────── */
+
+.mb-display-xl,
+h1.mb {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(72px, 9vw, 160px);
+  line-height: 0.95;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--fg-on-dark);
+  text-wrap: balance;
+}
+
+.mb-display-l,
+h2.mb {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(56px, 6vw, 110px);
+  line-height: 1.0;
+  text-transform: uppercase;
+  color: var(--fg-on-dark);
+  text-wrap: balance;
+}
+
+.mb-display-m,
+h3.mb {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 4vw, 70px);
+  line-height: 1.0;
+  text-transform: uppercase;
+  color: var(--fg-on-dark);
+  text-wrap: balance;
+}
+
+.mb-eyebrow {
+  font-family: var(--font-display-alt);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.0;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.mb-product-name {
+  font-family: var(--font-display-alt);
+  font-weight: 400;
+  font-size: clamp(40px, 4vw, 80px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--fg-on-dark);
+}
+
+.mb-subhead,
+h4.mb {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.15;
+  color: var(--fg-on-dark);
+}
+
+.mb-body-l {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.45;
+  color: inherit;
+}
+
+.mb-body,
+p.mb {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  color: inherit;
+}
+
+.mb-caption {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--fg-3);
+}
+
+.mb-tag {
+  font-family: var(--font-display-alt);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   THE WHITE-FRAMED AD CONTAINER (a brand signature)
+   ───────────────────────────────────────────────────────────────── */
+.mb-frame {
+  border: var(--border-frame-w) solid var(--border-frame);
+  background: var(--mb-ink);
+  color: var(--fg-on-dark);
+  position: relative;
+  overflow: hidden;
+}
+.mb-frame--ink-on-paper {
+  border-color: var(--mb-black);
+  background: var(--mb-bone);
+  color: var(--mb-black);
+}
+
+/* "REAL REVIEW" style white badge */
+.mb-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #000;
+  font-family: var(--font-display);
+  padding: 10px 22px;
+  font-size: 28px;
+  line-height: 1;
+}
