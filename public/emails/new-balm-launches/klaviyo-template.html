@@ -8,150 +8,70 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Permanent+Marker&family=Anton&family=Montserrat:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
-:root {
 
- --mb-orange: #E98517;
- --mb-orange-bright: #EF5D28;
- --mb-orange-soft: #E68F5A;
- --mb-orange-tan: #CF8663;
- --mb-amber: #FCA43A;
-
- --mb-black: #000000;
- --mb-ink: #23272A;
- --mb-ink-deep: #161213;
- --mb-ink-shadow: #090A0A;
- --mb-coffee: #3F3229;
- --mb-mahogany: #290012;
-
- --mb-paper: #FFFFFF;
- --mb-bone: #F2E9D6;
- --mb-stone: #BCBEC0;
- --mb-fog: #A9B3C4;
- --mb-mist: #D9D9D9;
-
- --mb-underdog: #E67E06;
- --mb-underdog-2: #B26B44;
- --mb-el-presidente: #C8DA2F;
- --mb-true-north: #4FBD9D;
- --mb-true-north-2: #3C2E39;
- --mb-sandalwood: #987157;
-
- --fg-1: var(--mb-black);
- --fg-2: var(--mb-ink);
- --fg-3: #4A4A4A;
- --fg-on-dark: var(--mb-paper);
- --fg-on-dark-soft: rgba(255,255,255,0.75);
-
- --bg-1: var(--mb-paper);
- --bg-2: var(--mb-bone);
- --bg-dark: var(--mb-ink);
- --bg-darker: var(--mb-ink-deep);
-
- --accent: var(--mb-orange);
- --accent-hot: var(--mb-orange-bright);
-
- --border-hairline: rgba(0,0,0,0.10);
- --border-light: rgba(255,255,255,0.40);
- --border-frame: #FFFFFF;
- --border-frame-w: 3px;
-
- --font-display: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
-
- --font-display-alt: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
-
- --font-sans: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
-
- --font-body: 'Montserrat', 'Inter', system-ui, sans-serif;
-
- --font-hand: 'Jameson SS Round', 'Patrick Hand', 'Caveat', cursive;
-
- --s-1: 4px;
- --s-2: 8px;
- --s-3: 12px;
- --s-4: 16px;
- --s-5: 24px;
- --s-6: 32px;
- --s-7: 48px;
- --s-8: 64px;
- --s-9: 96px;
-
- --r-0: 0px;
- --r-1: 2px;
- --r-2: 6px;
- --r-3: 12px;
- --r-pill: 999px;
-
- --shadow-1: 0 1px 2px rgba(0,0,0,0.10);
- --shadow-2: 0 6px 16px rgba(0,0,0,0.18);
- --shadow-3: 0 24px 60px rgba(0,0,0,0.35);
- --shadow-product: 0 30px 60px -20px rgba(0,0,0,0.55), 0 12px 24px -8px rgba(143,76,31,0.35);
-}
 
 .mb-display-xl,
 h1.mb {
- font-family: var(--font-display);
+ font-family: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
  font-weight: 400;
- font-size: clamp(72px, 9vw, 160px);
+ font-size: 160px;
  line-height: 0.95;
  letter-spacing: -0.005em;
  text-transform: uppercase;
- color: var(--fg-on-dark);
- text-wrap: balance;
+ color: #FFFFFF;
 }
 
 .mb-display-l,
 h2.mb {
- font-family: var(--font-display);
+ font-family: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
  font-weight: 400;
- font-size: clamp(56px, 6vw, 110px);
+ font-size: 110px;
  line-height: 1.0;
  text-transform: uppercase;
- color: var(--fg-on-dark);
- text-wrap: balance;
+ color: #FFFFFF;
 }
 
 .mb-display-m,
 h3.mb {
- font-family: var(--font-display);
+ font-family: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
  font-weight: 400;
- font-size: clamp(40px, 4vw, 70px);
+ font-size: 70px;
  line-height: 1.0;
  text-transform: uppercase;
- color: var(--fg-on-dark);
- text-wrap: balance;
+ color: #FFFFFF;
 }
 
 .mb-eyebrow {
- font-family: var(--font-display-alt);
+ font-family: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
  font-weight: 400;
  font-size: 14px;
  line-height: 1.0;
  letter-spacing: 0.18em;
  text-transform: uppercase;
- color: var(--accent);
+ color: #E98517;
 }
 
 .mb-product-name {
- font-family: var(--font-display-alt);
+ font-family: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
  font-weight: 400;
- font-size: clamp(40px, 4vw, 80px);
+ font-size: 80px;
  line-height: 0.95;
  letter-spacing: 0.02em;
  text-transform: uppercase;
- color: var(--fg-on-dark);
+ color: #FFFFFF;
 }
 
 .mb-subhead,
 h4.mb {
- font-family: var(--font-body);
+ font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
  font-weight: 600;
  font-size: 32px;
  line-height: 1.15;
- color: var(--fg-on-dark);
+ color: #FFFFFF;
 }
 
 .mb-body-l {
- font-family: var(--font-body);
+ font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
  font-weight: 400;
  font-size: 22px;
  line-height: 1.45;
@@ -160,7 +80,7 @@ h4.mb {
 
 .mb-body,
 p.mb {
- font-family: var(--font-sans);
+ font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
  font-weight: 400;
  font-size: 16px;
  line-height: 1.55;
@@ -168,15 +88,15 @@ p.mb {
 }
 
 .mb-caption {
- font-family: var(--font-sans);
+ font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
  font-weight: 400;
  font-size: 13px;
  line-height: 1.4;
- color: var(--fg-3);
+ color: #4A4A4A;
 }
 
 .mb-tag {
- font-family: var(--font-display-alt);
+ font-family: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
  font-weight: 400;
  font-size: 12px;
  line-height: 1;
@@ -185,16 +105,16 @@ p.mb {
 }
 
 .mb-frame {
- border: var(--border-frame-w) solid var(--border-frame);
- background: var(--mb-ink);
- color: var(--fg-on-dark);
+ border: 3px solid #FFFFFF;
+ background: #23272A;
+ color: #FFFFFF;
  position: relative;
  overflow: hidden;
 }
 .mb-frame--ink-on-paper {
- border-color: var(--mb-black);
- background: var(--mb-bone);
- color: var(--mb-black);
+ border-color: #000000;
+ background: #F2E9D6;
+ color: #000000;
 }
 
 .mb-pill {
@@ -203,7 +123,7 @@ p.mb {
  justify-content: center;
  background: #fff;
  color: #000;
- font-family: var(--font-display);
+ font-family: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
  padding: 10px 22px;
  font-size: 28px;
  line-height: 1;
@@ -212,39 +132,22 @@ p.mb {
 </style>
 <style>
 
- :root {
- --email-w: 640px;
- --inset: 32px;
- --inset-mob: 20px;
- }
+ 
  *, *::before, *::after { box-sizing: border-box; }
  html, body { margin: 0; padding: 0; }
  body {
- font-family: var(--font-sans);
+ font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
  background: #E9E6DF;
- color: var(--fg-1);
+ color: #000000;
  -webkit-font-smoothing: antialiased;
  text-rendering: optimizeLegibility;
- }
-
- .inbox {
- max-width: 880px;
- margin: 0 auto;
- padding: 48px 24px 96px;
- }
- .inbox-meta {
- background: #fff;
- border: 1px solid rgba(0,0,0,0.08);
- border-bottom: 0;
- padding: 20px 28px 22px;
- border-radius: 4px 4px 0 0;
  }
  .inbox-meta-row {
  display: flex;
  gap: 16px;
  font-size: 13px;
  line-height: 1.5;
- color: var(--fg-3);
+ color: #4A4A4A;
  }
  .inbox-meta-row + .inbox-meta-row { margin-top: 6px; }
  .inbox-meta-label {
@@ -257,32 +160,15 @@ p.mb {
  padding-top: 1px;
  flex-shrink: 0;
  }
- .inbox-meta-value { color: var(--fg-1); font-weight: 500; }
+ .inbox-meta-value { color: #000000; font-weight: 500; }
  .inbox-meta-value strong { font-weight: 700; }
- .inbox-subject {
- font-family: var(--font-display-alt);
- font-size: 22px;
- line-height: 1.15;
- letter-spacing: 0.01em;
- color: var(--fg-1);
- margin: 0 0 14px;
- }
- .inbox-preview {
- font-size: 13px;
- color: #6E6E6E;
- margin-top: 14px;
- padding-top: 14px;
- border-top: 1px dashed rgba(0,0,0,0.10);
- font-style: italic;
- }
- .inbox-preview b { font-weight: 600; font-style: normal; color: #4a4a4a; }
 
  .email {
  width: 100%;
- max-width: var(--email-w);
+ max-width: 640px;
  margin: 0 auto;
- background: var(--mb-ink-deep);
- color: var(--fg-on-dark);
+ background: #161213;
+ color: #FFFFFF;
  }
 
  .preheader {
@@ -296,7 +182,7 @@ p.mb {
 
  .email-header {
  background: transparent;
- padding: 18px var(--inset) 8px;
+ padding: 18px 32px 8px;
  display: flex;
  align-items: center;
  justify-content: space-between;
@@ -310,7 +196,7 @@ p.mb {
  background: url('https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/a1e875c4-904b-4324-a032-6a7979e94fc8.png') center/contain no-repeat;
  }
  .email-header .view-online {
- font-family: var(--font-sans);
+ font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
  font-size: 11px;
  letter-spacing: 0.18em;
  text-transform: uppercase;
@@ -318,13 +204,11 @@ p.mb {
  text-decoration: none;
  font-weight: 600;
  }
- .email-header .view-online:hover { color: var(--mb-orange); }
+ .email-header .view-online:hover { color: #E98517; }
 
  .hero {
- --sky: #5093d4;
- --sand: #fee0b1;
  position: relative;
- background: var(--sand);
+ background: #fee0b1;
  padding: 0 0 38px;
  text-align: center;
  overflow: hidden;
@@ -332,22 +216,22 @@ p.mb {
 
  .hero-image-wrap {
  position: relative;
- background: var(--sky);
+ background: #5093d4;
  }
  .hero-copy-top {
  position: absolute;
  top: 14%; left: 0; right: 0;
  z-index: 2;
- padding: 0 var(--inset);
+ padding: 0 32px;
  text-align: center;
  }
 
  .eyebrow {
- font-family: var(--font-display-alt);
+ font-family: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
  font-size: 14px;
  letter-spacing: 0.34em;
  text-transform: uppercase;
- color: var(--mb-orange);
+ color: #E98517;
  margin: 0;
  display: inline-flex;
  align-items: center;
@@ -357,26 +241,25 @@ p.mb {
  content: "";
  width: 26px;
  height: 1.5px;
- background: var(--mb-orange);
+ background: #E98517;
  opacity: 0.9;
  }
 
  .hero-headline {
- font-family: var(--font-display);
+ font-family: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
  font-weight: 400;
- font-size: clamp(52px, 9.6vw, 76px);
+ font-size: 76px;
  line-height: 0.96;
  text-transform: uppercase;
  color: #FFFFFF;
  margin: 10px auto 0;
- max-width: 14ch;
- text-wrap: balance;
+ max-width: 480px;
  letter-spacing: -0.005em;
  text-shadow: 0 2px 18px rgba(20,32,48,0.35);
  }
  .hero-headline em {
  font-style: normal;
- color: var(--mb-orange);
+ color: #E98517;
  display: inline-block;
  }
 
@@ -400,19 +283,18 @@ p.mb {
  .hero-bottom {
  position: relative;
  z-index: 2;
- padding: 4px var(--inset) 0;
+ padding: 4px 32px 0;
  margin-top: -4px;
  }
 
  .hero-sub {
- font-family: var(--font-body);
+ font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
  font-weight: 600;
  font-size: 16.5px;
  line-height: 1.5;
  color: rgba(35,28,18,0.78);
  margin: 0 auto;
- max-width: 38ch;
- text-wrap: balance;
+ max-width: 342px;
  }
  .hero-sub b { color: #2A1F12; font-weight: 700; }
 
@@ -421,28 +303,28 @@ p.mb {
  align-items: center;
  justify-content: center;
  gap: 10px;
- font-family: var(--font-display-alt);
+ font-family: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
  font-size: 15px;
  letter-spacing: 0.18em;
  text-transform: uppercase;
  color: #fff;
- background: var(--mb-orange);
+ background: #E98517;
  padding: 18px 32px;
  text-decoration: none;
  border: 0;
- border-radius: var(--r-1);
+ border-radius: 2px;
  transition: background 0.2s cubic-bezier(0.2,0.8,0.2,1), transform 0.08s;
  cursor: pointer;
  box-shadow: 0 8px 24px -8px rgba(233,133,23,0.55);
  }
- .cta:hover { background: var(--mb-orange-bright); }
+ .cta:hover { background: #EF5D28; }
  .cta:active { transform: scale(0.97); }
- .cta .arrow { font-family: var(--font-sans); font-weight: 600; }
+ .cta .arrow { font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; }
 
  .cta--lg { padding: 20px 36px; font-size: 16px; }
  .cta--ghost {
  background: transparent;
- color: var(--fg-on-dark);
+ color: #FFFFFF;
  border: 1.5px solid rgba(255,255,255,0.32);
  padding: 14px 24px;
  font-size: 13px;
@@ -453,42 +335,41 @@ p.mb {
 
  .hero-seam {
  height: 36px;
- background: linear-gradient(180deg, #fee0b1 0%, var(--mb-ink-deep) 100%);
+ background: linear-gradient(180deg, #fee0b1 0%, #161213 100%);
  position: relative;
  }
 
  .context {
- background: var(--mb-ink-deep);
- padding: 52px var(--inset) 14px;
+ background: #161213;
+ padding: 52px 32px 14px;
  text-align: center;
  }
  .context-rule {
  width: 28px;
  height: 1px;
- background: var(--mb-orange);
+ background: #E98517;
  margin: 0 auto 22px;
  }
  .context p {
- font-family: var(--font-body);
+ font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
  font-size: 15px;
  line-height: 1.75;
  color: rgba(255,255,255,0.78);
  margin: 0 auto;
- max-width: 46ch;
- text-wrap: pretty;
+ max-width: 414px;
  }
  .context p b { color: #fff; font-weight: 600; }
 
  .scents {
- background: var(--mb-ink-deep);
- padding: 36px var(--inset) 48px;
+ background: #161213;
+ padding: 36px 32px 48px;
  }
  .scents-heading {
  text-align: center;
  margin: 0 0 28px;
  }
  .scents-heading .label {
- font-family: var(--font-display-alt);
+ font-family: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
  font-size: 11px;
  letter-spacing: 0.32em;
  text-transform: uppercase;
@@ -496,7 +377,7 @@ p.mb {
  margin-bottom: 6px;
  }
  .scents-heading h2 {
- font-family: var(--font-display);
+ font-family: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
  font-size: 38px;
  line-height: 1;
  text-transform: uppercase;
@@ -511,9 +392,8 @@ p.mb {
  }
 
  .scent-card {
- --scent: var(--mb-orange);
  position: relative;
- background: var(--mb-ink);
+ background: #23272A;
  border: 1px solid rgba(255,255,255,0.06);
  overflow: hidden;
  display: grid;
@@ -538,7 +418,6 @@ p.mb {
  position: absolute;
  left: 0; right: 0; top: 0;
  height: 3px;
- background: var(--scent);
  }
  .scent-card .body {
  padding: 22px 22px 22px;
@@ -548,19 +427,18 @@ p.mb {
  }
  .scent-card .new-pill {
  align-self: flex-start;
- font-family: var(--font-display-alt);
+ font-family: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
  font-size: 10px;
  letter-spacing: 0.28em;
  text-transform: uppercase;
- color: var(--scent);
  padding: 5px 10px;
- border: 1px solid color-mix(in srgb, var(--scent) 55%, transparent);
- border-radius: var(--r-1);
- background: color-mix(in srgb, var(--scent) 10%, transparent);
+ border: 1px solid rgba(255,255,255,0.18);
+ border-radius: 2px;
+ background: rgba(255,255,255,0.18);
  line-height: 1;
  }
  .scent-card h3 {
- font-family: var(--font-display);
+ font-family: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
  font-size: 36px;
  line-height: 0.95;
  text-transform: uppercase;
@@ -569,7 +447,7 @@ p.mb {
  letter-spacing: -0.005em;
  }
  .scent-card .desc {
- font-family: var(--font-body);
+ font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
  font-weight: 600;
  font-size: 14px;
  line-height: 1.45;
@@ -583,13 +461,13 @@ p.mb {
  margin: 0 0 14px;
  }
  .scent-card .notes .note {
- font-family: var(--font-sans);
+ font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
  font-size: 11px;
  font-weight: 500;
  letter-spacing: 0.04em;
  color: rgba(255,255,255,0.78);
  padding: 5px 10px;
- border-radius: var(--r-pill);
+ border-radius: 999px;
  background: rgba(255,255,255,0.05);
  border: 1px solid rgba(255,255,255,0.10);
  white-space: nowrap;
@@ -600,32 +478,30 @@ p.mb {
  align-items: center;
  gap: 8px;
  align-self: flex-start;
- font-family: var(--font-display-alt);
+ font-family: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
  font-size: 12px;
  letter-spacing: 0.18em;
  text-transform: uppercase;
  color: #fff;
  text-decoration: none;
  padding-bottom: 4px;
- border-bottom: 1.5px solid var(--scent);
  transition: color 0.2s, gap 0.2s;
  }
  .scent-card .row-cta:hover {
- color: var(--scent);
  gap: 12px;
  }
- .scent-card .row-cta .arrow { font-family: var(--font-sans); }
+ .scent-card .row-cta .arrow { font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif; }
 
- .scent-card.true-north { --scent: var(--mb-true-north); }
+ .scent-card.true-north { }
  .scent-card.true-north .media { background-image: url('https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/efe75a25-1028-4e6a-887d-185a55a7324f.jpeg'); background-position: center; }
 
- .scent-card.el-presidente { --scent: var(--mb-el-presidente); }
+ .scent-card.el-presidente { }
  .scent-card.el-presidente .media {
  background-image: url('https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/a5981601-acc9-4a56-adef-51d44c1e2277.jpeg');
  background-position: center 60%;
  }
 
- .scent-card.sandalwood { --scent: var(--mb-sandalwood); }
+ .scent-card.sandalwood { }
  .scent-card.sandalwood .media {
  background-image: url('https://d3k81ch9hvuctc.cloudfront.net/company/HxYMYi/images/ad9e8229-efa4-4db9-bc6b-056a9a50adf1.jpeg');
  background-position: center 65%;
@@ -635,27 +511,27 @@ p.mb {
  background: #0d0d0e;
  border-top: 1px solid rgba(255,255,255,0.06);
  border-bottom: 1px solid rgba(255,255,255,0.06);
- padding: 18px var(--inset);
+ padding: 18px 32px;
  display: flex;
  align-items: center;
  justify-content: center;
  flex-wrap: wrap;
  gap: 6px 18px;
- font-family: var(--font-body);
+ font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
  font-size: 12.5px;
  color: rgba(255,255,255,0.78);
  letter-spacing: 0.02em;
  text-align: center;
  }
- .proof .stars { color: var(--mb-amber); letter-spacing: 0.06em; font-size: 14px; }
+ .proof .stars { color: #FCA43A; letter-spacing: 0.06em; font-size: 14px; }
  .proof .dot { color: rgba(255,255,255,0.28); }
  .proof b { color: #fff; font-weight: 600; }
- .proof .gq { font-family: var(--font-display-alt); letter-spacing: 0.18em; font-size: 12px; }
+ .proof .gq { font-family: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif; letter-spacing: 0.18em; font-size: 12px; }
 
  .kit {
- background: var(--mb-coffee);
+ background: #3F3229;
  color: #fff;
- padding: 40px var(--inset) 44px;
+ padding: 40px 32px 44px;
  position: relative;
  overflow: hidden;
  }
@@ -684,31 +560,29 @@ p.mb {
 
  .kit-copy { text-align: center; }
  .kit-copy h3 {
- font-family: var(--font-display);
+ font-family: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
  font-size: 36px;
  line-height: 1;
  text-transform: uppercase;
  color: #fff;
  margin: 0 0 10px;
- text-wrap: balance;
  }
- .kit-copy h3 em { font-style: normal; color: var(--mb-amber); }
+ .kit-copy h3 em { font-style: normal; color: #FCA43A; }
  .kit-copy p {
- font-family: var(--font-body);
+ font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
  font-weight: 500;
  font-size: 14.5px;
  line-height: 1.55;
  color: rgba(255,255,255,0.85);
  margin: 0 auto 20px;
- max-width: 42ch;
- text-wrap: pretty;
+ max-width: 378px;
  }
- .kit .cta { background: #fff; color: var(--mb-coffee); }
- .kit .cta:hover { background: var(--mb-bone); }
+ .kit .cta { background: #fff; color: #3F3229; }
+ .kit .cta:hover { background: #F2E9D6; }
 
  .risk {
- background: var(--mb-ink-deep);
- padding: 30px var(--inset);
+ background: #161213;
+ padding: 30px 32px;
  text-align: center;
  display: flex;
  align-items: center;
@@ -718,27 +592,26 @@ p.mb {
  .risk .shield {
  width: 32px; height: 32px;
  flex-shrink: 0;
- color: var(--mb-orange);
+ color: #E98517;
  }
  .risk p {
- font-family: var(--font-body);
+ font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
  font-weight: 500;
  font-size: 13.5px;
  line-height: 1.5;
  color: rgba(255,255,255,0.72);
  margin: 0;
- max-width: 44ch;
+ max-width: 396px;
  text-align: left;
- text-wrap: pretty;
  }
  .risk p b { color: #fff; font-weight: 600; }
 
  .footer {
- background: var(--mb-ink-shadow);
- padding: 36px var(--inset) 28px;
+ background: #090A0A;
+ padding: 36px 32px 28px;
  text-align: center;
  color: rgba(255,255,255,0.5);
- font-family: var(--font-body);
+ font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
  font-size: 12px;
  line-height: 1.6;
  }
@@ -759,14 +632,14 @@ p.mb {
  list-style: none;
  }
  .footer .shop-links a {
- font-family: var(--font-display-alt);
+ font-family: 'Anton', 'Impact', 'Oswald', 'Arial Narrow', sans-serif;
  font-size: 11px;
  letter-spacing: 0.24em;
  text-transform: uppercase;
  color: rgba(255,255,255,0.75);
  text-decoration: none;
  }
- .footer .shop-links a:hover { color: var(--mb-orange); }
+ .footer .shop-links a:hover { color: #E98517; }
  .footer .socials {
  display: flex;
  justify-content: center;
@@ -783,7 +656,7 @@ p.mb {
  text-decoration: none;
  transition: border-color 0.2s, color 0.2s;
  }
- .footer .socials a:hover { border-color: var(--mb-orange); color: var(--mb-orange); }
+ .footer .socials a:hover { border-color: #E98517; color: #E98517; }
  .footer .socials svg { width: 14px; height: 14px; }
  .footer .address {
  margin: 0;
@@ -792,11 +665,11 @@ p.mb {
  letter-spacing: 0.02em;
  }
  .footer .address a { color: rgba(255,255,255,0.55); text-decoration: underline; text-decoration-color: rgba(255,255,255,0.20); text-underline-offset: 3px; }
- .footer .address a:hover { color: var(--mb-orange); }
+ .footer .address a:hover { color: #E98517; }
  .footer .strapline {
- font-family: var(--font-display);
+ font-family: 'Jameson SS Round', 'Caveat Brush', 'Patrick Hand', cursive;
  font-size: 22px;
- color: var(--mb-orange);
+ color: #E98517;
  text-transform: uppercase;
  letter-spacing: 0.02em;
  margin: 0 0 6px;
@@ -807,7 +680,7 @@ p.mb {
  display: block;
  width: 36px;
  height: 2px;
- background: var(--mb-orange);
+ background: #E98517;
  margin: 8px auto 0;
  }
  .footer hr.rule {
@@ -823,9 +696,6 @@ p.mb {
  .footer .unsub a { color: rgba(255,255,255,0.55); text-decoration: underline; }
 
  @media (max-width: 560px) {
- .inbox { padding: 18px 0 60px; }
- .inbox-meta { border-radius: 0; border-left: 0; border-right: 0; padding: 16px 18px; }
- :root { --inset: var(--inset-mob); }
  .scent-card { grid-template-columns: 1fr; }
  .scent-card .media { aspect-ratio: 1 / 1; min-height: 0; }
  .scent-card .body { padding: 20px 18px 20px; }
@@ -881,10 +751,10 @@ p.mb {
  <div class="scent-grid">
 
  <article class="scent-card true-north">
- <div class="scent-color-bar"></div>
+ <div class="scent-color-bar" style="background:#4FBD9D"></div>
  <div class="media" role="img" aria-label="True North beard balm tin on stone, with pine"></div>
  <div class="body">
- <span class="new-pill">New &middot; True North</span>
+ <span class="new-pill" style="color:#4FBD9D; border-color:#4FBD9D">New &middot; True North</span>
  <h3>True North</h3>
  <p class="desc">Fresh, forested, grounding. The one that clears your head.</p>
  <div class="notes">
@@ -893,15 +763,15 @@ p.mb {
  <span class="note">Mint</span>
  <span class="note">Lavender</span>
  </div>
- <a href="https://missionbeard.com/products/true-north-beard-balm" class="row-cta">Shop True North balm <span class="arrow">&rarr;</span></a>
+ <a href="https://missionbeard.com/products/true-north-beard-balm" class="row-cta" style="border-bottom:1.5px solid #4FBD9D">Shop True North balm <span class="arrow">&rarr;</span></a>
  </div>
  </article>
 
  <article class="scent-card el-presidente">
- <div class="scent-color-bar"></div>
+ <div class="scent-color-bar" style="background:#C8DA2F"></div>
  <div class="media" role="img" aria-label="El Presidente beard balm tin on moss, with lemons and limes" style="background-size: cover"></div>
  <div class="body">
- <span class="new-pill">New &middot; El Presidente</span>
+ <span class="new-pill" style="color:#C8DA2F; border-color:#C8DA2F">New &middot; El Presidente</span>
  <h3>El Presidente</h3>
  <p class="desc">Bright, spiced, woody. Sharp without being loud.</p>
  <div class="notes">
@@ -909,22 +779,22 @@ p.mb {
  <span class="note">Cedarwood</span>
  <span class="note">Ginger</span>
  </div>
- <a href="https://missionbeard.com/products/el-presidente-beard-balm" class="row-cta">Shop El Presidente balm <span class="arrow">&rarr;</span></a>
+ <a href="https://missionbeard.com/products/el-presidente-beard-balm" class="row-cta" style="border-bottom:1.5px solid #C8DA2F">Shop El Presidente balm <span class="arrow">&rarr;</span></a>
  </div>
  </article>
 
  <article class="scent-card sandalwood">
- <div class="scent-color-bar"></div>
+ <div class="scent-color-bar" style="background:#987157"></div>
  <div class="media" role="img" aria-label="Sandalwood Vanille beard balm tin with vanilla flower, warm bokeh"></div>
  <div class="body">
- <span class="new-pill">New &middot; Sandalwood Vanille</span>
+ <span class="new-pill" style="color:#987157; border-color:#987157">New &middot; Sandalwood Vanille</span>
  <h3>Sandalwood Vanille</h3>
  <p class="desc">Warm, creamy, lingering. The crowd-pleaser.</p>
  <div class="notes">
  <span class="note">Sandalwood</span>
  <span class="note">Vanilla</span>
  </div>
- <a href="https://missionbeard.com/products/sandalwood-vanille-beard-balm" class="row-cta">Shop Sandalwood Vanille balm <span class="arrow">&rarr;</span></a>
+ <a href="https://missionbeard.com/products/sandalwood-vanille-beard-balm" class="row-cta" style="border-bottom:1.5px solid #987157">Shop Sandalwood Vanille balm <span class="arrow">&rarr;</span></a>
  </div>
  </article>
 
